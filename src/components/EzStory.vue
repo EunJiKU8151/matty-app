@@ -1,0 +1,56 @@
+<template>
+  <div class="ezstory-sec sec">
+    <h1 class="page-tit">이지스토리</h1>
+    <swiper ref="ezSwiper" :options="swiperOption" role="tablist">
+      <swiper-slide v-for="item in story" v-bind:key="item" role="tab">
+        <a :href="item.LinkUrl">
+          <div class="img-box">
+            <img :src="item.ThumbFileUrl" alt="">
+          </div>
+          <p class="tit">{{ item.TITLE }}</p>
+        </a>
+      </swiper-slide>
+    </swiper>
+  </div>
+</template>
+
+<script>
+import { swiper, swiperSlide } from 'vue-awesome-swiper'
+import 'swiper/dist/css/swiper.min.css'
+import { ezStoryApi } from '@/api/index'
+
+export default {
+  name: 'ezSwiper',
+  data () {
+    return {
+      swiperOption: {
+        slidesPerView: '1',
+      },
+      story: [],
+    }
+  },
+  components: {
+    swiper,
+    swiperSlide
+  },
+  methods: {
+    async fetchData() {
+      try {
+        const { data } = await ezStoryApi();
+        this.story = data;
+      }
+      catch(error) {
+        console.log("이지스토리 에러 : " + error);
+        console.log(error);
+      }
+    }
+  },
+  created () {
+    this.fetchData();
+  }
+}
+</script>
+
+<style lang="scss" scoped>
+  body {background-color: #fff;}
+</style>

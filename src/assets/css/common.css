@@ -1,0 +1,358 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap");
+html {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  position: relative;
+  height: 100%;
+  -webkit-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -webkit-overflow-scrolling: touch;
+  overflow-x: hidden;
+}
+
+body, header, div, h1, h2, h3, h4, h5, h6, ul, ol, li, dl, dt, dd, p, form, fieldset, table, tr, th, td, a, input, span, section, article {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  word-break: keep-all;
+}
+
+ul, ol, li {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+img, fieldset {
+  border: none;
+  vertical-align: top;
+}
+
+em {
+  font-style: normal;
+}
+
+legend, caption {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  color: transparent;
+  width: 0;
+  height: 0;
+  text-indent: -9999px;
+}
+
+button {
+  padding: 0;
+  margin: 0;
+  border: none;
+  cursor: pointer;
+  background: none;
+}
+
+textarea, button {
+  vertical-align: middle;
+}
+
+textarea {
+  color: #222;
+  resize: none;
+  overflow-y: auto;
+  -ms-overflow-style: auto;
+}
+
+select {
+  width: 100%;
+  font-size: 18px;
+  vertical-align: middle;
+  letter-spacing: -0.75px;
+  border: 0;
+  background: transparent;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+       appearance: none;
+  box-shadow: none;
+}
+
+select::-ms-expand {
+  display: none;
+}
+
+input, textarea {
+  width: 100%;
+  font-size: 18px;
+  font-family: "HyundaiHarmony", "Malgun Gothic", "애플 SD 산돌고딕 Neo", "Apple SD Gothic Neo", sans-serif;
+  font-weight: 300;
+  color: #222;
+  vertical-align: middle;
+  letter-spacing: -0.6px;
+  border: 0;
+  background: transparent;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+       appearance: none;
+  box-shadow: none;
+}
+
+option {
+  padding: 10px;
+}
+
+/* input[type="text"], input[type="password"] {outline: 0;} */
+input[type=radio], input[type=checkbox] {
+  padding: 0;
+  height: auto;
+  font-size: 18px;
+  border: 0;
+  box-shadow: none;
+}
+
+input[type=text]::-ms-clear {
+  display: none;
+}
+
+input[type=number]::-webkit-outer-spin-button, input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+input:focus::-moz-placeholder {
+  color: transparent;
+}
+
+input:focus::placeholder {
+  color: transparent;
+}
+
+textarea:focus::-moz-placeholder {
+  color: transparent;
+}
+
+textarea:focus::placeholder {
+  color: transparent;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+a:hover, a:focus, a:active {
+  text-decoration: none;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  height: 60px;
+  margin-bottom: 10px;
+}
+
+.header .logo {
+  width: 80px;
+  height: 34px;
+}
+
+.header .logo img {
+  width: 100%;
+}
+
+.nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 64px;
+  display: flex;
+  border-top: 1px solid #eee;
+}
+
+.nav .menu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+}
+
+.nav .menu i {
+  font-size: 20px;
+}
+
+.nav .menu span {
+  display: none;
+  margin-top: 4px;
+  font-size: 14px;
+}
+
+.nav .menu.router-link-active {
+  color: #44b6ae;
+}
+
+.nav .menu.router-link-active span {
+  display: block;
+}
+
+.login-page {
+  padding: 60px 30px 0;
+}
+
+.login-page .logo {
+  width: 120px;
+  margin: 0 auto 30px;
+}
+
+.login-page .logo img {
+  width: 100%;
+}
+
+.login-form .form .input-box.id-input {
+  margin-bottom: 40px;
+}
+
+.ezstory-sec .swiper-container.ezSwiper .swiper-wrapper .swiper-slide {
+  height: 250px;
+  background: #f3f4f7;
+  cursor: pointer;
+}
+
+.ezstory-sec .swiper-container.ezSwiper .swiper-wrapper .swiper-slide a {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+}
+
+.ezstory-sec .swiper-container.ezSwiper .swiper-wrapper .swiper-slide a .img-box {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.ezstory-sec .swiper-container.ezSwiper .swiper-wrapper .swiper-slide a .img-box img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.ezstory-sec .swiper-container.ezSwiper .swiper-wrapper .swiper-slide a .img-box::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, transparent, #000);
+}
+
+.ezstory-sec .swiper-container.ezSwiper .swiper-wrapper .swiper-slide a .tit {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  font-size: 18px;
+  font-weight: 700;
+  color: #fff;
+}
+
+* {
+  font-family: "Noto Sans KR", sans-serif;
+}
+
+#app {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.form .input-box {
+  position: relative;
+}
+
+.form .input-box label {
+  font-weight: 500;
+  color: #333;
+}
+
+.form .input-box input {
+  margin-top: 10px;
+  padding: 0 10px;
+  height: 40px;
+  color: #000;
+  border: 1px solid #eee;
+  border-radius: 2px;
+}
+
+.form .input-box input:focus {
+  border: 1px solid #44b6ae;
+  outline: none;
+}
+
+.form .input-box input::-moz-placeholder {
+  font-size: 12px;
+  color: #666;
+}
+
+.form .input-box input::placeholder {
+  font-size: 12px;
+  color: #666;
+}
+
+.btn {
+  width: 100%;
+  height: 54px;
+  margin-top: 30px;
+  font-weight: 500;
+  color: #fff;
+  border-radius: 4px;
+  background: #44b6ae;
+}
+
+.error.posi {
+  position: absolute;
+  bottom: -20px;
+}
+
+.error {
+  margin-top: 10px;
+  font-size: 12px;
+  color: red;
+}
+
+.page-tit {
+  position: relative;
+  padding-left: 14px;
+  margin: 40px 0 20px;
+  font-size: 22px;
+  font-weight: 700;
+  color: #000;
+}
+
+.page-tit::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: calc(50% + 2px);
+  transform: translateY(-50%);
+  width: 6px;
+  height: 24px;
+  border-radius: 2px;
+  background: #44b6ae;
+}/*# sourceMappingURL=common.css.map */

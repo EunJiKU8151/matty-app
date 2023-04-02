@@ -1,28 +1,21 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="매티앱 깃 테스트용 문구 체인지"/>
+    <MattyHeader></MattyHeader>
+    <router-view></router-view>
+    <MattyMenubar></MattyMenubar>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import MattyHeader from '@/components/MattyHeader.vue';
+import MattyMenubar from '@/components/MattyMenubar.vue';
 export default {
-  name: 'App',
   components: {
-    HelloWorld
+    MattyHeader,
+    MattyMenubar,
   }
 }
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style lang="scss">
 </style>
