@@ -12,28 +12,28 @@ const router = new VueRouter({
     },
     {
       path: '/login',
-      component: () => import('@/views/LoginPage.vue')
+      component: () => import('@/views/LoginPage.vue'),
     },
     {
       path: '/main',
-      component: () => import('@/views/MainPage.vue')
+      component: () => import('@/views/MainPage.vue'),
     },
     {
       path: '/book',
-      component: () => import('@/views/BookPage.vue')
+      component: () => import('@/views/BookPage.vue'),
     },
     {
       path: '/info',
-      component: () => import('@/views/InfoPage.vue')
+      component: () => import('@/views/InfoPage.vue'),
     },
     {
       path: '/my',
-      component: () => import('@/views/MyPage.vue')
+      component: () => import('@/views/MyPage.vue'),
     },
     {
       path: '*',
-      component: () => import('@/views/NotPage.vue')
-    }
+      component: () => import('@/views/NotPage.vue'),
+    },
   ]
 });
 

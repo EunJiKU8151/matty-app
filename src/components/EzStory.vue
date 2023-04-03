@@ -1,8 +1,8 @@
 <template>
   <div class="ezstory-sec sec">
     <h1 class="page-tit">이지스토리</h1>
-    <swiper ref="ezSwiper" :options="swiperOption" role="tablist">
-      <swiper-slide v-for="item in story" v-bind:key="item" role="tab">
+    <swiper ref="ezSwiper" class="ezSwiper" :options="swiperOption" role="tablist">
+      <swiper-slide v-for="item in ezStoryItems" v-bind:key="item.IDX" role="tab">
         <a :href="item.LinkUrl">
           <div class="img-box">
             <img :src="item.ThumbFileUrl" alt="">
@@ -15,9 +15,9 @@
 </template>
 
 <script>
-import { swiper, swiperSlide } from 'vue-awesome-swiper'
-import 'swiper/dist/css/swiper.min.css'
-import { ezStoryApi } from '@/api/index'
+import { swiper, swiperSlide } from 'vue-awesome-swiper';
+import 'swiper/dist/css/swiper.min.css';
+import { ezStoryApi } from '@/api/index';
 
 export default {
   name: 'ezSwiper',
@@ -26,7 +26,7 @@ export default {
       swiperOption: {
         slidesPerView: '1',
       },
-      story: [],
+      ezStoryItems: [],
     }
   },
   components: {
@@ -37,7 +37,7 @@ export default {
     async fetchData() {
       try {
         const { data } = await ezStoryApi();
-        this.story = data;
+        this.ezStoryItems = data;
       }
       catch(error) {
         console.log("이지스토리 에러 : " + error);

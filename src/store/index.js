@@ -1,16 +1,19 @@
 import Vue from 'vue';
-import Vuex from 'vuex'
+import Vuex from 'vuex';
 
 Vue.use(Vuex);
 
 const store = new Vuex.Store({
   state: {
-    UserId: '',
-    AccessToken: '',
-    RefreshToken: '',
+    UserId: localStorage.getItem("UserID") || '',
+    AccessToken: localStorage.getItem("AccessToken") || '',
+    RefreshToken: localStorage.getItem("AccessToken") || '',
   },
-  getter: {
-
+  getters: {
+    // UserId값이 있으면, header&nav 보임
+    isLogin(state) {
+      return state.UserId !== '';
+    }
   },
   mutations: {
     // 로그인 시, 아이디 저장
@@ -28,7 +31,7 @@ const store = new Vuex.Store({
   },
   actions: {
 
-  }
+  },
 });
 
 export default store;

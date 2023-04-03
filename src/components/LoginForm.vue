@@ -10,27 +10,27 @@
         <label for="userpw">비밀번호</label>
         <input v-model="passwd" ref="userpw" id="userpw" type="password" placeholder="비밀번호를 입력해주세요.">
       </div>
-      <button class="btn" type="submit">로그인</button>
+      <button class="btn" type="submit" @keydown.enter="loginSubmit">로그인</button>
     </form>
-    <p class="error" v-show="idempty">이메일을 입력해주세요.</p>
-    <p class="error" v-show="pwdempty">비밀번호를 입력해주세요.</p>
-    <p class="error" v-show="loginerror">로그인에 실패하였습니다.<br>이메일과 비밀번호를 확인해주세요.</p>
+    <p class="error" v-show="idEmpty">이메일을 입력해주세요.</p>
+    <p class="error" v-show="pwdEmpty">비밀번호를 입력해주세요.</p>
+    <p class="error" v-show="loginError">로그인에 실패하였습니다.<br>이메일과 비밀번호를 확인해주세요.</p>
   </div>
 </template>
 
 <script>
-  import { loginApi } from '@/api/index'
-  import { validateEmail } from '@/utils/validation.js'
+  import { loginApi } from '@/api/index';
+  import { validateEmail } from '@/utils/validation.js';
+  // import { setLocalStorage } from '@/utils/localStorag.js'
 
   export default {
     data() {
       return {
         userid: '',
         passwd: '',
-        iderror: '',
-        idempty: '',
-        pwdempty: '',
-        loginerror: '',
+        idEmpty: '',
+        pwdEmpty: '',
+        loginError: '',
       }
     },
     computed: {
@@ -58,19 +58,19 @@
         }
         catch(error) {
           if(this.userid == "") {
-            this.idempty = true;
-            this.pwdempty = false;
-            this.loginerror = false;
+            this.idEmpty = true;
+            this.pwdEmpty = false;
+            this.loginError = false;
             this.$refs.userid.focus();
           } else if(this.passwd == "") {
-            this.idempty = false;
-            this.pwdempty = true;
-            this.loginerror = false;
+            this.idEmpty = false;
+            this.pwdEmpty = true;
+            this.loginError = false;
             this.$refs.userpw.focus();
           } else {
-            this.idempty = false;
-            this.pwdempty = false;
-            this.loginerror = true;
+            this.idEmpty = false;
+            this.pwdEmpty = false;
+            this.loginError = true;
             this.clearInput();
             this.$refs.userid.focus();
           }

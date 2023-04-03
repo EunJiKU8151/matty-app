@@ -1,30 +1,58 @@
-html {width: 100%; height: 100%;}
-body {position: relative; height: 100%; -webkit-text-size-adjust: 100%; -moz-text-size-adjust: 100%; -ms-text-size-adjust: 100%; -webkit-overflow-scrolling: touch; overflow-x: hidden;}
-body, header, div, h1, h2, h3, h4, h5, h6, ul, ol, li, dl, dt, dd, p, form, fieldset, table, tr, th, td, a, input, span, section, article {margin: 0; padding: 0; box-sizing: border-box; word-break: keep-all;}
-ul, ol, li {list-style: none; padding: 0; margin: 0;}
-img, fieldset {border: none; vertical-align: top;}
-em {font-style: normal;}
-legend, caption {position: absolute; top: 0; left: 0; z-index: -1; color: transparent; width: 0; height: 0; text-indent: -9999px;}
-button {padding: 0; margin: 0; border: none; cursor: pointer; background: none;}
-textarea, button {vertical-align: middle;}
-textarea {color: #222; resize: none; overflow-y: auto; -ms-overflow-style: auto;}
-select {width: 100%; font-size: 18px; vertical-align: middle; letter-spacing: -.75px; border: 0; background: transparent; -webkit-appearance: none; appearance: none; -webkit-box-shadow: none; -moz-box-shadow: none; box-shadow: none;}
-select::-ms-expand {display: none;}
-input, textarea {width: 100%; font-size: 18px; font-family: "HyundaiHarmony", "Malgun Gothic", "애플 SD 산돌고딕 Neo", "Apple SD Gothic Neo", sans-serif; font-weight: 300; color: #222; vertical-align: middle; letter-spacing: -.6px; border: 0; background: transparent; -webkit-appearance: none; appearance: none; -webkit-box-shadow: none; -moz-box-shadow: none; box-shadow: none;}
-option {padding: 10px;}
-/* input[type="text"], input[type="password"] {outline: 0;} */
-input[type="radio"], input[type="checkbox"] {padding: 0; height: auto; font-size: 18px; border: 0; -webkit-box-shadow: none; -moz-box-shadow: none; box-shadow: none;}
-input[type=text]::-ms-clear {display: none;}
-input[type=number]::-webkit-outer-spin-button, input[type=number]::-webkit-inner-spin-button {-webkit-appearance: none; margin: 0;}
-input[type=number] {-moz-appearance: textfield;}
-input:focus::-webkit-input-placeholder {color: transparent;}
-input:focus:-ms-input-placeholder {color: transparent;}
-input:focus::-ms-input-placeholder {color: transparent;}
-input:focus::placeholder {color: transparent;}
-textarea:focus::-webkit-input-placeholder {color: transparent;}
-textarea:focus:-ms-input-placeholder {color: transparent;}
-textarea:focus::-ms-input-placeholder {color: transparent;}
-textarea:focus::placeholder {color: transparent;}
-a {text-decoration: none; color: inherit;}
-a:hover, a:focus, a:active {text-decoration: none;}
-table {width: 100%; border-collapse: collapse; table-layout: fixed;}
+// http://meyerweb.com/eric/tools/css/reset/ 
+// v2.0 | 20110126
+// License: none (public domain)
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	// font: inherit;
+	vertical-align: baseline;
+}
+// HTML5 display-role reset for older browsers
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	// line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+// KEJ Custrom reset
+input {
+  width: 100%;
+}
+button {
+  border: none;
+  cursor: pointer;
+}
+a {
+  color: $black_color; text-decoration: none;
+}

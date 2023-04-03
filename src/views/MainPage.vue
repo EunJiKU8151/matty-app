@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import EzStory from '@/components/EzStory.vue'
+import EzStory from '@/components/EzStory.vue';
 
 export default {
   components: {

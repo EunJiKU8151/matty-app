@@ -1,5 +1,5 @@
-import axios from 'axios'
-import store from '@/store/index'
+import axios from 'axios';
+import store from '@/store/index';
 
 const instance = axios.create({
   baseURL: "https://mattyapi.easymedia.co.kr/",
@@ -10,7 +10,6 @@ const instance = axios.create({
 
 instance.interceptors.request.use(function (config) {
 		// 요청보내기 전 코드
-    console.log(config);
 		config.headers.token = store.state.AccessToken;
 		return config;
 	}, function (error) {
@@ -21,15 +20,29 @@ instance.interceptors.request.use(function (config) {
 
 // 로그인 API
 function loginApi(userData) {
-  return instance.post('api/Token', userData)
+  return instance.post('api/Token', userData);
 }
+
+// 로그인 유저 정보 API
+function userInfoApi() {
+  // return instance.get('api/User/{id}');
+  return instance.get('api/Vacation');
+}
+// function userInfoApi(userId) {
+//   return instance.get('api/User/', {
+//     params: {
+//       id: userId
+//     }
+//   });
+// }
 
 // 이지스토리 API
 function ezStoryApi() {
-  return instance.get('api/EasyStory')
+  return instance.get('api/EasyStory');
 }
 
 export {
   loginApi,
-  ezStoryApi
+  userInfoApi,
+  ezStoryApi,
 }
