@@ -10,6 +10,7 @@
           <p class="tit">{{ item.TITLE }}</p>
         </a>
       </swiper-slide>
+      <div class="swiper-pagination" slot="pagination"></div> 
     </swiper>
   </div>
 </template>
@@ -25,6 +26,10 @@ export default {
     return {
       swiperOption: {
         slidesPerView: '1',
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true
+        },
       },
       ezStoryItems: [],
     }
