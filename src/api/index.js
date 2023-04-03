@@ -36,6 +36,16 @@ function userInfoApi() {
 //   });
 // }
 
+// 신규 입사자 API
+function newUserApi() {
+  return instance.get('api/User', {
+    params: {
+      startdate: '2023-01-01',
+      enddate: '2023-04-30'
+    }
+  });
+}
+
 // 이지스토리 API
 function ezStoryApi() {
   return instance.get('api/EasyStory');
@@ -44,5 +54,6 @@ function ezStoryApi() {
 export {
   loginApi,
   userInfoApi,
+  newUserApi,
   ezStoryApi,
 }

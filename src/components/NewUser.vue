@@ -5,8 +5,14 @@
 </template>
 
 <script>
-export default {
+import { newUserApi } from '@/api/index';
 
+export default {
+  created() {
+    newUserApi()
+      .then(({ data }) => console.log(data))
+      .catch(error => console.log(error))
+  },
 }
 </script>
 
