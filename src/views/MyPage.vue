@@ -4,13 +4,14 @@
     <div class="info-wrap">
       <dl>
         <dt>이름 / ID</dt>
-        <dd>{{ userVocaItem.NAME }}</dd>
-        <dd>{{ userVocaItem.AV_EMP_NO }}</dd>
+        <dd>
+          <span>{{ userVocaItem.NAME }} </span>
+          <span>({{ userVocaItem.AV_EMP_NO }})</span>
+        </dd>
       </dl>
       <dl>
         <dt>남은 연차</dt>
-        <dd>{{ userVocaItem.AV_DAYS }}</dd>
-        <dd>{{ userVocaItem.AV_USE_DAYS }}</dd>
+        <dd>{{ userVocaItem.AV_DAYS - userVocaItem.AV_USE_DAYS }}</dd>
       </dl>
       <dl>
         <dt>근무 연수</dt>
@@ -21,7 +22,7 @@
         <dd>{{ userVocaItem.AV_REGDATE }}</dd>
       </dl>
     </div>
-    <button class="out-btn">logout</button>
+    <button class="out-btn" v-on:click.prevent="logOutUser">logout</button>
   </div>
 </template>
 
@@ -43,7 +44,15 @@ export default {
         console.log("마이페이지 에러 : " + error);
         console.log(error);
       }
-
+    },
+    logOutUser() {
+      if(window.confirm('로그아웃 하시겠습니까?')) {
+        localStorage.clear();
+        this.$store.commit('logOutUserIdRemove');
+        this.$store.commit('logOutAccessTokenRemove');
+        this.$store.commit('logOutRefreshTokenRemove');
+        this.$router.push('/login');
+      }
     }
   },
   created() {

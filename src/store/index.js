@@ -27,7 +27,19 @@ const store = new Vuex.Store({
     // 로그인 시, 토큰 저장
     loginUserRefreshTokenSet(state, RefreshToken) {
       state.RefreshToken = RefreshToken;
-    }
+    },
+    // 로그아웃 시, 아이디 삭제
+    logOutUserIdRemove(state) {
+      state.UserId = "";
+    },
+    // 로그아웃 시, 아이디 삭제
+    logOutAccessTokenRemove(state) {
+      state.AccessToken = "";
+    },
+    // 로그아웃 시, 아이디 삭제
+    logOutRefreshTokenRemove(state) {
+      state.RefreshToken = "";
+    },
   },
   actions: {
 
