@@ -1,6 +1,6 @@
 <template>
   <div class="ezstory-sec sec">
-    <h1 class="page-tit">이지스토리</h1>
+    <h2 class="sec-tit">이지스토리</h2>
     <swiper ref="ezSwiper" class="ezSwiper" :options="swiperOption" role="tablist">
       <swiper-slide v-for="item in ezStoryItems" v-bind:key="item.IDX" role="tab">
         <a :href="item.LinkUrl">

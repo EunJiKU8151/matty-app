@@ -336,7 +336,7 @@ table {
   color: red;
 }
 
-.page-tit {
+.sec-tit {
   position: relative;
   padding-left: 14px;
   margin: 40px 0 20px;
@@ -345,7 +345,7 @@ table {
   color: #000;
 }
 
-.page-tit::before {
+.sec-tit::before {
   content: "";
   position: absolute;
   left: 0;

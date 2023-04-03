@@ -1,6 +1,6 @@
 <template>
   <div class="mypage-sec sec">
-    <h1 class="page-tit">마이페이지</h1>
+    <h1 class="sec-tit">마이페이지</h1>
     <div class="info-wrap">
       <dl>
         <dt>이름 / ID</dt>

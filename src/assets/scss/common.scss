@@ -30,5 +30,5 @@
 .error {margin-top: 10px; font-size: 12px; color: $red_color;}
 
 // tit
-.page-tit {position: relative; padding-left: 14px; margin: 40px 0 20px;  font-size: 22px; font-weight: 700; color: $black_color}
-.page-tit::before {content: ""; position: absolute; left: 0; top: calc(50% + 2px); transform: translateY(-50%); width: 6px; height: 24px; border-radius: 2px; background: $point_color;}
+.sec-tit {position: relative; padding-left: 14px; margin: 40px 0 20px;  font-size: 22px; font-weight: 700; color: $black_color}
+.sec-tit::before {content: ""; position: absolute; left: 0; top: calc(50% + 2px); transform: translateY(-50%); width: 6px; height: 24px; border-radius: 2px; background: $point_color;}
