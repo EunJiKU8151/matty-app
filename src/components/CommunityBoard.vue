@@ -26,7 +26,8 @@
               <span>{{ item.CNT_READ }}</span>
             </p>
             <p class="date">
-              {{ item.REGDATE }}
+              {{ item.REGDATE | formatData }}
+              <!-- {{ item.REGDATE | formatData }} -->
             </p>
           </div>
         </div>
@@ -56,6 +57,11 @@ export default {
       boardItems: [],
     }
   },
+  // filters: {
+  //   formatData(value) {
+  //     return new Date(value);
+  //   }
+  // },
   components: {
     swiper,
     swiperSlide
