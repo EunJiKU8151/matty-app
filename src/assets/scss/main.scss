@@ -1,3 +1,7 @@
+// 메인페이지
+.main-page {padding-bottom: 64px;}
+
+
 // 기념일
 
 
@@ -15,9 +19,39 @@
 
 
 // 신규 입사자
+.newuser-sec .swiper-container.newSwiper {overflow: visible;}
+.newuser-sec .swiper-container.newSwiper .swiper-wrapper {overflow: visible;}
+.newuser-sec .swiper-container.newSwiper .swiper-wrapper .swiper-slide {padding: 50px 20px 24px; border: 1px solid $gray_color; background: #fff; box-shadow: 0px 3px 4px -2px rgba(0, 0, 0, .1);}
+.newuser-sec .swiper-container.newSwiper .swiper-wrapper .swiper-slide .name {font-size: 24px; font-weight: 700; color: #000;}
+.newuser-sec .swiper-container.newSwiper .swiper-wrapper .swiper-slide .info {margin: 20px 0; font-size: 18px; color: #000;}
+.newuser-sec .swiper-container.newSwiper .swiper-wrapper .swiper-slide .contact {font-size: 11px; color: #000;}
+.newuser-sec .swiper-container.newSwiper .swiper-wrapper .swiper-slide .addr {margin: 8px 0; font-size: 11px; color: $black_color;}
+.newuser-sec .swiper-container.newSwiper .swiper-wrapper .swiper-slide .phone {font-size: 11px; color: $black_color;}
+.newuser-sec .swiper-container.newSwiper .swiper-wrapper .swiper-slide .url {font-size: 11px; color: $black_color;}
 
 
 // 게시판
+.board-sec .tab-area {margin-bottom: 20px;}
+.board-sec .tab-area .swiper-container.boardTabSwiper .swiper-slide {width: auto;}
+.board-sec .tab-area .swiper-container.boardTabSwiper .swiper-slide a {font-size: 18px; color: $lightblack_color;}
+.board-sec .tab-area .swiper-container.boardTabSwiper .swiper-slide.on a {color: #000;}
+
+.board-sec .board-area .board {display: flex; width: 100%; padding: 20px 0; box-sizing: border-box; border-bottom: 1px solid $gray_color;}
+.board-sec .board-area .board:nth-child(1) {padding-top: 0;}
+.board-sec .board-area .board .img-box {margin-right: 20px;}
+.board-sec .board-area .board .img-box .img {width: 50px; height: 50px; margin-bottom: 10px; overflow: hidden; border-radius: 50%; background: $gray_color;}
+.board-sec .board-area .board .img-box .img img {width: 100%; height: 100%; overflow: cover;}
+.board-sec .board-area .board .txt-box {display: flex; flex-direction: column; justify-content: space-between;}
+.board-sec .board-area .board .txt-box .tit {font-weight: 700; color: $black_color;}
+.board-sec .board-area .board .txt-box .txt {display: flex; align-items: center;}
+.board-sec .board-area .board .txt-box .txt p {color: $mediumblack_color;}
+.board-sec .board-area .board .txt-box .txt p ~ p {margin-left: 10px;}
+.board-sec .board-area .board .txt-box .txt p i {position: relative; top: -1px; margin-right: 4px; font-size: 12px;}
+.board-sec .board-area .board .txt-box .txt .like i {color: $red_color;}
+.board-sec .board-area .board .txt-box .txt .date {font-size: 12px;}
+
+.board-sec .no-board {padding: 50px 0; border: 1px solid $gray_color;}
+.board-sec .no-board .txt {text-align: center;}
 
 
 // 회의실

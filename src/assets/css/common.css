@@ -127,10 +127,6 @@ a {
   margin-bottom: 40px;
 }
 
-.ezstory-sec .swiper-container.ezSwiper .swiper-pagination .swiper-pagination-bullet {
-  background: #666;
-}
-
 .ezstory-sec .swiper-container.ezSwiper .swiper-wrapper .swiper-slide {
   height: 250px;
   background: #f3f4f7;
@@ -179,8 +175,89 @@ a {
   color: #fff;
 }
 
+.ezstory-sec .swiper-container.ezSwiper {
+  padding-bottom: 30px;
+}
+
+.ezstory-sec .swiper-container.ezSwiper .swiper-pagination {
+  bottom: 0;
+}
+
+.ezstory-sec .swiper-container.ezSwiper .swiper-pagination .swiper-pagination-bullet {
+  border-radius: 8px;
+  background: #666;
+  transition: width 0.3s;
+}
+
+.ezstory-sec .swiper-container.ezSwiper .swiper-pagination .swiper-pagination-bullet.swiper-pagination-bullet-active {
+  width: 30px;
+  background: #44b6ae;
+}
+
+.board-sec .tab-area .swiper-container.boardTabSwiper .swiper-slide {
+  width: auto;
+}
+
+.board-sec .tab-area .swiper-container.boardTabSwiper .swiper-slide a {
+  font-size: 18px;
+  color: #666;
+}
+
+.board-sec .tab-area .swiper-container.boardTabSwiper .swiper-slide.on a {
+  color: #000;
+}
+
+.board-sec .board-area {
+  border: 1px solid green;
+}
+
+.board-sec .board-area .board {
+  border: 1px solid red;
+}
+
+.board-sec .board-area .board {
+  display: flex;
+  width: 100%;
+  height: 128px;
+  padding: 20px 0;
+  box-sizing: border-box;
+  border-bottom: 1px solid #eee;
+}
+
+.board-sec .board-area .board .img-box {
+  margin-right: 20px;
+  border: 1px solid pink;
+}
+
+.board-sec .board-area .board .img-box .img {
+  width: 50px;
+  height: 50px;
+  overflow: hidden;
+  border-radius: 50%;
+  background: #eee;
+}
+
+.board-sec .board-area .board .img-box .img img {
+  width: 100%;
+  height: 100%;
+  overflow: cover;
+}
+
+.board-sec .board-area .board .txt-box {
+  border: 1px solid gray;
+}
+
+.board-sec .board-area .board .txt-box .txt {
+  display: flex;
+}
+
+.board-sec .board-area .board .txt-box .txt p ~ p {
+  margin-left: 10px;
+}
+
 * {
   font-family: "Noto Sans KR", sans-serif;
+  box-sizing: border-box;
 }
 
 #app {

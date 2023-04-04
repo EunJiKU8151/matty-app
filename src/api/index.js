@@ -40,6 +40,7 @@ function userInfoApi() {
 function newUserApi() {
   return instance.get('api/User', {
     params: {
+      stype: 'new',
       startdate: '2023-01-01',
       enddate: '2023-04-30'
     }
@@ -51,9 +52,26 @@ function ezStoryApi() {
   return instance.get('api/EasyStory');
 }
 
+// 게시판 메뉴 API
+function BoardMenuApi() {
+  return instance.get('api/CommunityCategory');
+}
+
+// 게시판 API
+function BoardApi(menu) {
+  return instance.get('api/Community', {
+    params: {
+      c: menu,
+      size: 5,
+    }
+  });
+}
+
 export {
   loginApi,
   userInfoApi,
   newUserApi,
   ezStoryApi,
+  BoardMenuApi,
+  BoardApi,
 }
