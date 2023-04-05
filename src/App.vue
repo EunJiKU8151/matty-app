@@ -1,17 +1,18 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="매티앱 깃 테스트용 문구 체인지"/>
+    <!-- <img alt="Vue logo" src="./assets/logo.png"> -->
+    <!-- <HelloWorld msg="매티앱 깃 테스트용 문구 체인지"/> -->
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+// import HelloWorld from './components/HelloWorld.vue'
 
 export default {
-  name: 'App',
+  // name: 'App',
   components: {
-    HelloWorld
+    // HelloWorld
   }
 }
 </script>
