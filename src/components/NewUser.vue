@@ -43,7 +43,6 @@ export default {
   created() {
     newUserApi()
       .then(({ data }) => {
-        console.log(data);
         this.newUser = data;
       })
       .catch(error => {
