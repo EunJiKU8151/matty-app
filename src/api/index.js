@@ -28,13 +28,33 @@ function userInfoApi() {
   // return instance.get('api/User/{id}');
   return instance.get('api/Vacation');
 }
-// function userInfoApi(userId) {
-//   return instance.get('api/User/', {
-//     params: {
-//       id: userId
-//     }
-//   });
-// }
+
+// 이지데이 API
+function ezDayApi() {
+  return instance.get('api/User', {
+    params: {
+      stype: 'easyday',
+      startdate: '2023-04-01',
+      enddate: '2023-04-30'
+    }
+  })
+}
+
+// 생일 API
+function birthDayApi() {
+  return instance.get('api/User', {
+    params: {
+      stype: 'birthday',
+      startdate: '2023-04-01',
+      enddate: '2023-04-30'
+    }
+  })
+}
+
+// 이지스토리 API
+function ezStoryApi() {
+  return instance.get('api/EasyStory');
+}
 
 // 신규 입사자 API
 function newUserApi() {
@@ -45,11 +65,6 @@ function newUserApi() {
       enddate: '2023-04-30'
     }
   });
-}
-
-// 이지스토리 API
-function ezStoryApi() {
-  return instance.get('api/EasyStory');
 }
 
 // 게시판 메뉴 API
@@ -67,11 +82,19 @@ function BoardApi(menu) {
   });
 }
 
+// 특정 유저 정보 API
+function ThisUserApi(userId) {
+  return instance.get(`api/User/${userId}`)
+}
+
 export {
   loginApi,
   userInfoApi,
-  newUserApi,
+  ezDayApi,
+  birthDayApi,
   ezStoryApi,
+  newUserApi,
   BoardMenuApi,
   BoardApi,
+  ThisUserApi,
 }
