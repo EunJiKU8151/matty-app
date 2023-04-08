@@ -19,7 +19,7 @@
       </dl>
       <dl>
         <dt>연차 갱신일</dt>
-        <dd>{{ userVocaItem.AV_REGDATE }}</dd>
+        <dd>{{ userVocaItem.AV_REGDATE | MMdd }}</dd>
       </dl>
     </div>
     <button class="out-btn" v-on:click.prevent="logOutUser">logout</button>
@@ -32,6 +32,20 @@ export default {
   data() {
     return {
       userVocaItem: "",
+    }
+  },
+  filters: {
+    MMdd: function(value) {
+      var itemDate = new Date(value);
+      var month =  itemDate.getMonth() + 1;
+      var day =  itemDate.getDate();
+      if(month < 10) {
+        month = `0${month}`;
+      }
+      if(day < 10) {
+        day = `0${day}`;
+      }
+      return `${month}월 ${day}일`;
     }
   },
   methods: {
