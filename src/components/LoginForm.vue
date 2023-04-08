@@ -21,7 +21,6 @@
 <script>
   import { loginApi } from '@/api/index';
   import { validateEmail } from '@/utils/validation.js';
-  // import { setLocalStorage } from '@/utils/localStorag.js'
 
   export default {
     data() {
