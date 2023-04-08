@@ -11,7 +11,7 @@
     <div v-if="!(boardItems == '')" class="board-area">
       <a v-for="item in boardItems" :key="item.BBSDATAID" href="javascript:" class="board">
         <div class="img-box">
-          <figure class="img"><img src="" alt=""></figure>
+          <figure class="img"><img :src="`https://easymedia.matty.works:8443/File/Page1/Profile/${item.USERID}`" alt=""></figure>
           <p class="name">{{ item.USERNAME }}</p>
         </div>
         <div class="txt-box">
@@ -26,7 +26,7 @@
               <span>{{ item.CNT_READ }}</span>
             </p>
             <p class="date">
-              {{ item.REGDATE | formatData }}
+              {{ item.REGDATE | yyMMdd }}
               <!-- {{ item.REGDATE | formatData }} -->
             </p>
           </div>
@@ -57,20 +57,31 @@ export default {
       boardItems: [],
     }
   },
-  // filters: {
-  //   formatData(value) {
-  //     return new Date(value);
-  //   }
-  // },
   components: {
     swiper,
     swiperSlide
+  },
+  filters: {
+    yyMMdd: function(value) {
+      var itemDate = new Date(value);
+      var year = itemDate.getFullYear();
+      var month =  itemDate.getMonth() + 1;
+      var day =  itemDate.getDate();
+      
+      if(month < 10) {
+        month = `0${month}`;
+      }
+      if(day < 10) {
+        day = `0${day}`;
+      }
+
+      return `${year}-${month}-${day}`;
+    }
   },
   methods: {
     // tab click
     tabClick(menu) {
       this.activeMenu = menu;
-      console.log(this.activeMenu);
 
       this.test(menu);
     },
@@ -78,7 +89,6 @@ export default {
     test(menu) {
       BoardApi(menu)
         .then(({ data }) => {
-          console.log(data);
           this.boardItems = data;
         })
         .catch(error => {
