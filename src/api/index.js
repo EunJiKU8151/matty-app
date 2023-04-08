@@ -87,6 +87,15 @@ function ThisUserApi(userId) {
   return instance.get(`api/User/${userId}`)
 }
 
+// 부서 Api
+function contantApi() {
+  return instance.get('api/User', {
+    params: {
+      dept: 595
+    }
+  })
+}
+
 export {
   loginApi,
   userInfoApi,
@@ -97,4 +106,5 @@ export {
   BoardMenuApi,
   BoardApi,
   ThisUserApi,
+  contantApi
 }

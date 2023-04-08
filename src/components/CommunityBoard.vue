@@ -27,7 +27,6 @@
             </p>
             <p class="date">
               {{ item.REGDATE | yyMMdd }}
-              <!-- {{ item.REGDATE | formatData }} -->
             </p>
           </div>
         </div>
