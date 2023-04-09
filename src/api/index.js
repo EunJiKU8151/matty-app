@@ -1,11 +1,15 @@
 import axios from "axios";
+// import store from '@/store/index'
 
 const instance = axios.create({
-  baseURL: 'http://localhost:8081'
+  baseURL: 'https://mattyapi.easymedia.co.kr/',
+  // headers: {
+  //   Authorization: store.state.username,
+  // }
 })
 
-function loginUser(userdata){
-  return instance.post('login', userdata);
+function loginUser(username){
+  return instance.post('api/Token', username);
 }
 
 export { loginUser }
