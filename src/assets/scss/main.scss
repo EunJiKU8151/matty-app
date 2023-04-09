@@ -6,7 +6,7 @@
 .ezday-sec .tab-head {display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;}
 .ezday-sec .tab-head .tab-area .tab {font-size: 18px; color: $lightblack_color;}
 .ezday-sec .tab-head .tab-area .tab ~ .tab {margin-left: 10px;}
-.ezday-sec .tab-head .tab-area .tab.on {color:$black_color;}
+.ezday-sec .tab-head .tab-area .tab.on {font-weight: 700; color:$black_color;}
 .ezday-sec .tab-head .more-btn {font-size: 14px; color: $black_color;}
 .ezday-sec .daySwiper {height: 120px;}
 .ezday-sec .daySwiper .swiper-slide {justify-content: center; width: auto !important;}
@@ -48,7 +48,7 @@
 .board-sec .tab-area {margin-bottom: 20px;}
 .board-sec .tab-area .boardTabSwiper .swiper-slide {width: auto;}
 .board-sec .tab-area .boardTabSwiper .swiper-slide a {font-size: 18px; color: $lightblack_color;}
-.board-sec .tab-area .boardTabSwiper .swiper-slide.on a {color: $black_color;}
+.board-sec .tab-area .boardTabSwiper .swiper-slide.on a {font-weight: 700; color: $black_color;}
 .board-sec .board-area .board {display: flex; width: 100%; padding: 20px 0; box-sizing: border-box; border-bottom: 1px solid $gray_color;}
 .board-sec .board-area .board:nth-child(1) {padding-top: 0;}
 .board-sec .board-area .board .img-box {margin-right: 20px;}

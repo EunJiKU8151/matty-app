@@ -3,8 +3,8 @@
     <h2 class="sec-tit">기념일</h2>
     <div class="tab-head">
       <div class="tab-area">
-        <button class="tab on" @click="tabClick('easyday')">이지데이</button>
-        <button class="tab" @click="tabClick('birthday')">생일자</button>
+        <button class="tab" :class="[ontab === 1 ? 'on' : '']" @click="tabClick('easyday')">이지데이</button>
+        <button class="tab" :class="[ontab === 2 ? 'on' : '']" @click="tabClick('birthday')">생일자</button>
       </div>
       <button class="more-btn">더보기</button>
     </div>
@@ -41,6 +41,7 @@ export default {
       ezDayItems: [],
       ezBirthItems: [],
       tab: 'easyday',
+      ontab: 1,
     }
   },
   computed: {
@@ -76,6 +77,12 @@ export default {
     // tab click
     tabClick(day) {
       this.tab = day;
+
+      if(day == 'easyday') {
+        this.ontab = 1
+      } else {
+        this.ontab = 2;
+      }
     }
   },
   created() {

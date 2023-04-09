@@ -3,8 +3,8 @@
     <h2 class="sec-tit">게시판</h2>
     <div class="tab-area">
       <swiper ref="boardTabSwiper" class="boardTabSwiper" :options="swiperOption" role="tablist">
-        <swiper-slide v-for="item in boardMenu" v-bind:key="item.BBSCATEID" role="tab">
-          <a href="javascript:" v-on:click="tabClick(item.CATEID)">{{ item.BBSNAME }}</a>
+        <swiper-slide :class="[ontab === idx + 1 ? 'on' : '']" v-for="(item, idx) in boardMenu" v-bind:key="idx" role="tab">
+          <a href="javascript:" v-on:click="tabClick(item.CATEID, idx)">{{ item.BBSNAME }}</a>
         </swiper-slide>
       </swiper>
     </div>
@@ -54,6 +54,7 @@ export default {
       boardMenu: [],
       activeMenu: "NOTICE",
       boardItems: [],
+      ontab: 1,
     }
   },
   components: {
@@ -79,8 +80,9 @@ export default {
   },
   methods: {
     // tab click
-    tabClick(menu) {
+    tabClick(menu, idx) {
       this.activeMenu = menu;
+      this.ontab = idx + 1;
 
       this.BoardGet(menu);
     },
