@@ -77,9 +77,9 @@ export default {
       })
   },
   methods: {
-    // 메인 페이지로 이동
+    // 이전 페이지로 이동
     prevPage() {
-      this.$router.push('/main');
+      this.$router.go(-1);
     }
   }
 }
