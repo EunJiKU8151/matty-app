@@ -13,35 +13,42 @@ const router = new VueRouter({
     },
     {
       path: '/login',
+      name: 'login',
       component: () => import('@/views/LoginPage.vue'),
     },
     {
       path: '/main',
+      name: 'main',
       meta: { auth: true },
       component: () => import('@/views/MainPage.vue'),
     },
     {
       path: '/book',
+      name: 'book',
       meta: { auth: true },
       component: () => import('@/views/BookPage.vue'),
     },
     {
       path: '/info',
+      name: 'info',
       meta: { auth: true },
       component: () => import('@/views/ContactPage.vue'),
     },
     {
       path: '/my',
+      name: 'my',
       meta: { auth: true },
       component: () => import('@/views/MyPage.vue'),
     },
     {
       path: '/user/:id',
+      name: 'user',
       meta: { auth: true },
       component: () => import('@/views/UserProfilePage.vue')
     },
     {
       path: '*',
+      name: 'no',
       meta: { auth: true },
       component: () => import('@/views/NotPage.vue'),
     },
