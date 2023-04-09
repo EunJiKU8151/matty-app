@@ -87,10 +87,10 @@ function ThisUserApi(userId) {
 }
 
 // 부서 Api
-function contantApi() {
+function contantApi(dept) {
   return instance.get('api/User', {
     params: {
-      dept: 595
+      dept: dept
     }
   })
 }

@@ -20,17 +20,31 @@
 </template>
 
 <script>
-import { contantApi } from '@/api/index';
+import { ThisUserApi, contantApi } from '@/api/index';
 
 export default {
   data: function() {
     return {
         myTeamUsers: [],
+        myDept: "",
       };
   },
-  created() {
+  async created() {
+    let userId = 618;
+    
+    // 
+    await ThisUserApi(userId)
+      .then(({ data }) => {
+        console.log(data);
+        this.myDept = data.DEPT_CODE
+      })
+      .catch(error => {
+        console.log("내 정보 에러 : " + error);
+        console.log(error);
+      })
+
     // 부서 Api Get
-    contantApi()
+    await contantApi(this.myDept)
       .then(({ data }) => {
         console.log(data);
         this.myTeamUsers = data;
