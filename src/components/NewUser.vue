@@ -41,11 +41,11 @@ export default {
     swiperSlide
   },
   created() {
-    // var startDay = this.$store.state.nowDayFirst;
-    // var lastDay = this.$store.state.nowDayLast;
+    let allFirstDay = this.$store.state.date.thisyearFirst;
+    let lastDay = this.$store.state.date.nowDayLast;
 
     // 신규 입사자 API Get
-    newUserApi()
+    newUserApi(allFirstDay, lastDay)
       .then(({ data }) => {
         this.newUser = data;
       })

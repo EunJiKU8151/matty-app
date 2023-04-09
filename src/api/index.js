@@ -29,23 +29,23 @@ function thisUserInfoApi() {
 }
 
 // 이지데이 API
-function ezDayApi() {
+function ezDayApi(firstDay, lastDay) {
   return instance.get('api/User', {
     params: {
       stype: 'easyday',
-      startdate: '2023-04-01',
-      enddate: '2023-04-30'
+      startdate: firstDay,
+      enddate: lastDay,
     }
   })
 }
 
 // 생일 API
-function birthDayApi() {
+function birthDayApi(firstDay, lastDay) {
   return instance.get('api/User', {
     params: {
       stype: 'birthday',
-      startdate: '2023-04-01',
-      enddate: '2023-04-30'
+      startdate: firstDay,
+      enddate: lastDay,
     }
   })
 }
@@ -56,12 +56,12 @@ function ezStoryApi() {
 }
 
 // 신규 입사자 API
-function newUserApi() {
+function newUserApi(firstDay, lastDay) {
   return instance.get('api/User', {
     params: {
       stype: 'new',
-      startdate: '2023-01-01',
-      enddate: '2023-04-30'
+      startdate: firstDay,
+      enddate: lastDay,
     }
   });
 }

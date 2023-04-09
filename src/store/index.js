@@ -8,8 +8,11 @@ const store = new Vuex.Store({
     UserId: localStorage.getItem("UserID") || '',
     AccessToken: localStorage.getItem("AccessToken") || '',
     RefreshToken: localStorage.getItem("AccessToken") || '',
-    nowDayFirst: "",
-    nowDayLast: "",
+    date: {
+      thisyearFirst: "",
+      nowDayFirst: "",
+      nowDayLast: "",
+    }
   },
   getters: {
     // UserId값이 있으면, header&nav 보임
@@ -19,11 +22,14 @@ const store = new Vuex.Store({
   },
   mutations: {
     // 이번 달
-    thisDayGet(state, date) {
-      state.nowDayFirst = date;
+    thisYearFirst(state, date) {
+      state.date.thisyearFirst = date;
     },
-    thisDayGet2(state, date) {
-      state.nowDayLast = date;
+    nowMonthFirst(state, date) {
+      state.date.nowDayFirst = date;
+    },
+    nowMonthLast(state, date) {
+      state.date.nowDayLast = date;
     },
     // 로그인 시, 아이디 저장
     loginUserIdSet(state, userid) {

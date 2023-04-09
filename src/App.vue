@@ -26,8 +26,8 @@ export default {
     let date = new Date();
     let year = date.getFullYear();
     let month = date.getMonth() + 1;
-    let firstDay = new Date(year, month, 1).getDay();
-    let lastDate = new Date(year, month, 0).getDate();
+    let firstDay = new Date(year, month, 1).getDate();
+    let lastday = new Date(year, month, 0).getDate();
 
     if(month < 10) {
         month = `0${month}`;
@@ -36,10 +36,12 @@ export default {
         firstDay = `0${firstDay}`;
       }
 
-    let test1 = `${year}-${month}-${firstDay}`;
-    let test2 = `${year}-${month}-${lastDate}`;
-    this.$store.commit('thisDayGet', test1);
-    this.$store.commit('thisDayGet2', test2);
+    let test1 = `${year}-01-01`;
+    let test2 = `${year}-${month}-${firstDay}`;
+    let test3 = `${year}-${month}-${lastday}`;
+    this.$store.commit('thisYearFirst', test1);
+    this.$store.commit('nowMonthFirst', test2);
+    this.$store.commit('nowMonthLast', test3);
   }
 }
 </script>

@@ -79,11 +79,11 @@ export default {
     }
   },
   created() {
-    // var startDay = this.$store.state.nowDayFirst;
-    // var lastDay = this.$store.state.nowDayLast;
+    let firstDay = this.$store.state.date.nowDayFirst;
+    let lastDay = this.$store.state.date.nowDayLast;
 
     // 이지데이 API Get
-    ezDayApi()
+    ezDayApi(firstDay, lastDay)
       .then(({ data }) => {
         this.ezDayItems = data;
       }) 
@@ -93,7 +93,7 @@ export default {
       })
 
     // 생일 API Get
-    birthDayApi()
+    birthDayApi(firstDay, lastDay)
       .then(({ data }) => {
         this.ezBirthItems = data;
       })
