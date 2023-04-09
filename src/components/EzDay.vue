@@ -54,9 +54,9 @@ export default {
   },
   filters: {
     MMdd: function(value) {
-      var itemDate = new Date(value);
-      var month =  itemDate.getMonth() + 1;
-      var day =  itemDate.getDate();
+      let itemDate = new Date(value);
+      let month =  itemDate.getMonth() + 1;
+      let day =  itemDate.getDate();
 
       if(month < 10) {
         month = `0${month}`;
@@ -79,7 +79,10 @@ export default {
     }
   },
   created() {
-    // 이지데이 API
+    // var startDay = this.$store.state.nowDayFirst;
+    // var lastDay = this.$store.state.nowDayLast;
+
+    // 이지데이 API Get
     ezDayApi()
       .then(({ data }) => {
         this.ezDayItems = data;
@@ -89,7 +92,7 @@ export default {
         console.log(error);
       })
 
-    // 생일 API
+    // 생일 API Get
     birthDayApi()
       .then(({ data }) => {
         this.ezBirthItems = data;

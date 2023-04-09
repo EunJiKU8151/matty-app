@@ -1,0 +1,17 @@
+// 유저 프로필
+.profile-sec .prev-btn {font-size: 20px}
+.profile-sec .profile-area {display: flex; margin-top: 30px; margin-bottom: 40px;}
+.profile-sec .profile-area .img-box {width: 80px; height: 80px; margin-right: 10px; border-radius: 50%; overflow: hidden;}
+.profile-sec .profile-area .img-box img {width: 100%; height: 100%; object-fit: cover;}
+.profile-sec .profile-area .txt-box {display: flex; flex-direction: column; justify-content: space-between;}
+.profile-sec .profile-area .txt-box .names .name {margin-right: 4px; font-size: 20px; font-weight: 700; color: $black_color;}
+.profile-sec .profile-area .txt-box .names .position {font-size: 16px; color: $black_color;}
+.profile-sec .profile-area .txt-box .group {font-size: 16px; color: $lightblack_color; opacity: .6;}
+.profile-sec .info-aera .info {padding: 16px 0;}
+.profile-sec .info-aera .info:first-child {padding-top: 0;}
+.profile-sec .info-aera .info ~ .info {border-top: 1px solid $gray_color;}
+.profile-sec .info-aera .info .tit {margin-bottom: 6px;}
+.profile-sec .info-aera .info:last-child .tit {margin-bottom: 6px; color: $lightblack_color; opacity: .6;}
+.profile-sec .info-aera .info i.tit {font-size: 20px; color: $point_color;}
+.profile-sec .info-aera .info a {display: block;}
+.profile-sec .info-aera .info .txt {font-size: 18px; color: $mediumblack_color;}

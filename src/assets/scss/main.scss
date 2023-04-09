@@ -1,4 +1,5 @@
 // 메인페이지
+.main-page .sec:first-child .sec-tit {margin-top: 0;}
 
 
 // 기념일
@@ -48,7 +49,6 @@
 .board-sec .tab-area .boardTabSwiper .swiper-slide {width: auto;}
 .board-sec .tab-area .boardTabSwiper .swiper-slide a {font-size: 18px; color: $lightblack_color;}
 .board-sec .tab-area .boardTabSwiper .swiper-slide.on a {color: $black_color;}
-
 .board-sec .board-area .board {display: flex; width: 100%; padding: 20px 0; box-sizing: border-box; border-bottom: 1px solid $gray_color;}
 .board-sec .board-area .board:nth-child(1) {padding-top: 0;}
 .board-sec .board-area .board .img-box {margin-right: 20px;}
@@ -62,7 +62,6 @@
 .board-sec .board-area .board .txt-box .txt p i {position: relative; top: -1px; margin-right: 4px; font-size: 12px;}
 .board-sec .board-area .board .txt-box .txt .like i {color: $red_color;}
 .board-sec .board-area .board .txt-box .txt .date {font-size: 12px;}
-
 .board-sec .no-board {padding: 50px 0; border: 1px solid $gray_color;}
 .board-sec .no-board .txt {text-align: center;}
 

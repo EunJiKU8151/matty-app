@@ -41,6 +41,7 @@ export default {
   methods: {
     async fetchData() {
       try {
+        // 이지스토리 Api Get
         const { data } = await ezStoryApi();
         this.ezStoryItems = data;
       }

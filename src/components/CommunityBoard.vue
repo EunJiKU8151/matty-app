@@ -62,10 +62,10 @@ export default {
   },
   filters: {
     yyMMdd: function(value) {
-      var itemDate = new Date(value);
-      var year = itemDate.getFullYear();
-      var month =  itemDate.getMonth() + 1;
-      var day =  itemDate.getDate();
+      let itemDate = new Date(value);
+      let year = itemDate.getFullYear();
+      let month =  itemDate.getMonth() + 1;
+      let day =  itemDate.getDate();
       
       if(month < 10) {
         month = `0${month}`;
@@ -82,10 +82,10 @@ export default {
     tabClick(menu) {
       this.activeMenu = menu;
 
-      this.test(menu);
+      this.BoardGet(menu);
     },
-    // 게시판 API
-    test(menu) {
+    // 게시판 API Get
+    BoardGet(menu) {
       BoardApi(menu)
         .then(({ data }) => {
           this.boardItems = data;
@@ -97,7 +97,7 @@ export default {
       }
   },
   created() {
-    // 게시판 메뉴 API
+    // 게시판 메뉴 API Get
     BoardMenuApi()
       .then(({ data }) => {
         this.boardMenu = data;
@@ -107,8 +107,8 @@ export default {
         console.log(error)
       })
 
-    // 게시판 API
-    this.test();
+    // 게시판 API Get
+    this.BoardGet();
   }
 }
 </script>

@@ -41,6 +41,10 @@ export default {
     swiperSlide
   },
   created() {
+    // var startDay = this.$store.state.nowDayFirst;
+    // var lastDay = this.$store.state.nowDayLast;
+
+    // 신규 입사자 API Get
     newUserApi()
       .then(({ data }) => {
         this.newUser = data;

@@ -28,7 +28,7 @@ const router = new VueRouter({
     {
       path: '/info',
       meta: { auth: true },
-      component: () => import('@/views/InfoPage.vue'),
+      component: () => import('@/views/ContactPage.vue'),
     },
     {
       path: '/my',
@@ -38,7 +38,7 @@ const router = new VueRouter({
     {
       path: '/user/:id',
       meta: { auth: true },
-      component: () => import('@/views/UserProfile.vue')
+      component: () => import('@/views/UserProfilePage.vue')
     },
     {
       path: '*',

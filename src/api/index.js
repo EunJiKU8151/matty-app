@@ -23,9 +23,8 @@ function loginApi(userData) {
   return instance.post('api/Token', userData);
 }
 
-// 로그인 유저 정보 API
-function userInfoApi() {
-  // return instance.get('api/User/{id}');
+// 해당 로그인 유저 정보 API
+function thisUserInfoApi() {
   return instance.get('api/Vacation');
 }
 
@@ -98,7 +97,7 @@ function contantApi() {
 
 export {
   loginApi,
-  userInfoApi,
+  thisUserInfoApi,
   ezDayApi,
   birthDayApi,
   ezStoryApi,

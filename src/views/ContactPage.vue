@@ -29,6 +29,7 @@ export default {
       };
   },
   created() {
+    // 부서 Api Get
     contantApi()
       .then(({ data }) => {
         console.log(data);

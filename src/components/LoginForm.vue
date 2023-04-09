@@ -10,7 +10,7 @@
         <label for="userpw">비밀번호</label>
         <input v-model="passwd" ref="userpw" id="userpw" type="password" placeholder="비밀번호를 입력해주세요.">
       </div>
-      <button class="btn" type="submit" @keydown.enter="loginSubmit">로그인</button>
+      <button class="login-btn" type="submit" @keydown.enter="loginSubmit">로그인</button>
     </form>
     <p class="error" v-show="idEmpty">이메일을 입력해주세요.</p>
     <p class="error" v-show="pwdEmpty">비밀번호를 입력해주세요.</p>
@@ -46,13 +46,17 @@
             userid: this.userid,
             passwd: this.passwd,
           }
+          // 로그인 Api Post
           const { data } =  await loginApi(userData);
+          // 로그인 정보 store state 저장
           this.$store.commit('loginUserIdSet', this.userid)
           this.$store.commit('loginUserAccessTokenSet', data.AccessToken)
           this.$store.commit('loginUserRefreshTokenSet', data.RefreshToken)
+          // 로그인 정보 localstorage 저장
           localStorage.setItem("UserID", this.userid);
           localStorage.setItem("AccessToken", data.AccessToken);
           localStorage.setItem("RefreshToken", data.RefreshToken);
+          // 메인 페이지 이동
           this.$router.push('/main');
         }
         catch(error) {
@@ -77,6 +81,7 @@
           console.log(error);
         }
       },
+      // 로그인 input 초기화
       clearInput() {
         this.userid = "";
         this.passwd = "";
