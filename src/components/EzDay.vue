@@ -3,13 +3,13 @@
     <h2 class="sec-tit">기념일</h2>
     <div class="tab-head">
       <div class="tab-area">
-        <button class="tab" :class="[ontab === 1 ? 'on' : '']" @click="tabClick('easyday')">이지데이</button>
-        <button class="tab" :class="[ontab === 2 ? 'on' : '']" @click="tabClick('birthday')">생일자</button>
+        <button class="tab" :class="[ontab === 1 ? 'on' : '']" @click="tabClick(ontab = 1)">이지데이</button>
+        <button class="tab" :class="[ontab === 2 ? 'on' : '']" @click="tabClick(ontab = 2)">생일자</button>
       </div>
       <button class="more-btn">더보기</button>
     </div>
     <swiper ref="daySwiper" class="daySwiper" :options="swiperOption" role="itemlist">
-      <swiper-slide v-for="item in test" v-bind:key="item" ref="item">
+      <swiper-slide v-for="item in onContent" v-bind:key="item" ref="item">
         <router-link :to="`/user/${item.E_IDX}`">
           <div class="img-box">
             <img :src="`https://easymedia.matty.works:8443/File/Page1/Profile/${item.EMAIL}`" alt="">
@@ -17,7 +17,7 @@
           <div class="txt-box">
             <p class="name">{{ item.NAME }}</p>
             <template>
-              <p class="day" v-if="tab == 'easyday'">{{ item.easyday }}</p>
+              <p class="day" v-if="ontab === 1">{{ item.easyday }}</p>
               <p class="birthday" v-else>{{ item.EI_BIRTH_DATE | MMdd }}</p>
             </template>
           </div>
@@ -40,13 +40,13 @@ export default {
       },
       ezDayItems: [],
       ezBirthItems: [],
-      tab: 'easyday',
       ontab: 1,
     }
   },
   computed: {
-    test() {
-      if(this.tab == 'easyday') {
+    // onTab된 onConent 반환
+    onContent() {
+      if(this.ontab === 1) {
         return this.ezDayItems
       } else {
         return this.ezBirthItems
@@ -72,18 +72,6 @@ export default {
   components: {
     swiper,
     swiperSlide
-  },
-  methods: {
-    // tab click
-    tabClick(day) {
-      this.tab = day;
-
-      if(day == 'easyday') {
-        this.ontab = 1
-      } else {
-        this.ontab = 2;
-      }
-    }
   },
   created() {
     let firstDay = this.$store.state.date.nowDayFirst;
