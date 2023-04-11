@@ -81,6 +81,21 @@ function BoardApi(menu) {
   });
 }
 
+// 회의실 API
+function meetingRoomApi() {
+  return instance.get('api/MeetingRoom', {
+  })
+}
+
+// 미팅일정 API
+function meetingSchApi() {
+  return instance.get('api/Meeting', {
+    params: {
+      date: '2023-04-11'
+    }
+  })
+}
+
 // 특정 유저 정보 API
 function ThisUserApi(userId) {
   return instance.get(`api/User/${userId}`)
@@ -104,6 +119,8 @@ export {
   newUserApi,
   BoardMenuApi,
   BoardApi,
+  meetingRoomApi,
+  meetingSchApi,
   ThisUserApi,
   contantApi
 }
