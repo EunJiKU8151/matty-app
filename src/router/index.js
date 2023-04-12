@@ -27,18 +27,16 @@ const router = new VueRouter({
       name: 'book',
       meta: { auth: true },
       component: () => import('@/views/BookPage.vue'),
-    },
-    {
-      path: '/book/home',
-      name: 'bookHome',
-      meta: { auth: true },
-      component: () => import('@/components/BookHome.vue'),
-    },
-    {
-      path: '/book/category',
-      name: 'bookCategory',
-      meta: { auth: true },
-      component: () => import('@/components/BookCategory.vue'),
+      children: [
+        {
+          path: 'home',
+          component: () => import('@/components/BookHome.vue'),
+        },
+        {
+          path: 'category',
+          component: () => import('@/components/BookCategory.vue'),
+        }
+      ]
     },
     {
       path: '/info',
