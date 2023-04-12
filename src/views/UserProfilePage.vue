@@ -49,7 +49,7 @@ export default {
     yyMMdd: function(value) {
       let itemData = new Date(value);
       let year = itemData.getFullYear();
-      let month = itemData.getMonth() + ``;
+      let month = itemData.getMonth() + 1;
       let day = itemData.getDate();
 
       if(month < 10) {
