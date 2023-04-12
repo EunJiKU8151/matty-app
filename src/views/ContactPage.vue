@@ -35,7 +35,6 @@ export default {
     // 
     await ThisUserApi(userId)
       .then(({ data }) => {
-        console.log(data);
         this.myDept = data.DEPT_CODE
       })
       .catch(error => {
@@ -46,7 +45,6 @@ export default {
     // 부서 Api Get
     await contantApi(this.myDept)
       .then(({ data }) => {
-        console.log(data);
         this.myTeamUsers = data;
       })
       .catch(error => {

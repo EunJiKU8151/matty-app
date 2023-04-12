@@ -68,7 +68,6 @@ export default {
     // 특정 유저 정보 API Get
     ThisUserApi(userId)
       .then(({ data }) => {
-        console.log(data);
         this.userProfile = data;
       })
       .catch(error => {

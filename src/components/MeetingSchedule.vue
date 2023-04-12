@@ -2,7 +2,7 @@
   <div class="meetingsch-sec sec">
     <h2 class="sec-tit">미팅일정</h2>
     <ul class="sch-list">
-      <li v-for="item in meetingSch" :key="item">
+      <li v-for="item in meetingSch" :key="item.Task.T_IDX">
         <p class="tit">{{ item.Task.T_TITLE }}</p>
         <div class="cont">
           <ul class="users">
@@ -47,7 +47,6 @@ export default {
   created() {
     meetingSchApi()
       .then(({ data }) => {
-        console.log(data);
         this.meetingSch = data;
       })
       .catch(error => {

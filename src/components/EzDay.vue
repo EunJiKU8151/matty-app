@@ -9,7 +9,7 @@
       <button class="more-btn">더보기</button>
     </div>
     <swiper ref="daySwiper" class="daySwiper" :options="swiperOption" role="itemlist">
-      <swiper-slide v-for="item in onContent" v-bind:key="item" ref="item">
+      <swiper-slide v-for="item in onContent" v-bind:key="item.TREEID" ref="item">
         <router-link :to="`/user/${item.E_IDX}`">
           <div class="img-box">
             <img :src="`https://easymedia.matty.works:8443/File/Page1/Profile/${item.EMAIL}`" alt="">

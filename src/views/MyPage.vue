@@ -61,7 +61,6 @@ export default {
       try {
         // 해당 로그인 유저 정보 API Get
         const { data } = await thisUserInfoApi();
-        console.log(data);
         this.thisUserInfos = data;
       } catch(error) {
         console.log("마이페이지 에러 : " + error);
