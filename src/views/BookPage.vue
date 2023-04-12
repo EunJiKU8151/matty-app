@@ -1,12 +1,20 @@
 <template>
   <div>
-    <h1>도서 페이지</h1>
+    <BookTab></BookTab>
+    <router-view></router-view>
+    <!-- <BookHome></BookHome> -->
   </div>
 </template>
 
 <script>
-export default {
+import BookTab from '@/components/BookTab.vue';
+// import MattyMenubar from '@/components/MattyMenubar.vue';
 
+export default {
+  components: {
+    BookTab,
+    // BookHome,
+  }
 }
 </script>
 

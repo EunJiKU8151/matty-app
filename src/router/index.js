@@ -5,7 +5,7 @@ import store from '@/store/index';
 Vue.use(VueRouter);
 
 const router = new VueRouter({
-  mode: 'history',
+  // mode: 'history',
   routes: [
     {
       path: '/',
@@ -27,6 +27,18 @@ const router = new VueRouter({
       name: 'book',
       meta: { auth: true },
       component: () => import('@/views/BookPage.vue'),
+    },
+    {
+      path: '/book/home',
+      name: 'bookHome',
+      meta: { auth: true },
+      component: () => import('@/components/BookHome.vue'),
+    },
+    {
+      path: '/book/category',
+      name: 'bookCategory',
+      meta: { auth: true },
+      component: () => import('@/components/BookCategory.vue'),
     },
     {
       path: '/info',
