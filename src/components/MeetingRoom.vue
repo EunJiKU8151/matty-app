@@ -57,7 +57,10 @@ export default {
       let hours = itemDate.getHours();
       let minutes  = itemDate.getMinutes();
       
-      // return `${year}-${month}-${day}`;
+      if(minutes < 10) {
+        minutes = `0${minutes}`;
+      }
+      
       return `${hours}:${minutes}`;
     }
   },
