@@ -89,6 +89,7 @@
 .meetingsch-sec .sch-list {}
 // .meetingsch-sec .sch-list li {border: 1px solid #eee;}
 .meetingsch-sec .sch-list li .tit {font-size: 18px; font-weight: 500; color: $black_color;}
+.meetingsch-sec .sch-list li .tit span {margin-left: 4px;}
 .meetingsch-sec .sch-list li .cont {display: flex; justify-content: space-between; align-items: flex-start; margin-top: 18px;}
 .meetingsch-sec .sch-list li .cont .users {display: flex;}
 .meetingsch-sec .sch-list li .cont .users .user ~ .user {margin-left: 10px;}

@@ -3,7 +3,10 @@
     <h2 class="sec-tit">미팅일정</h2>
     <ul class="sch-list">
       <li v-for="item in meetingSch" :key="item.Task.T_IDX">
-        <p class="tit">{{ item.Task.T_TITLE }}</p>
+        <p class="tit">
+          <i class="fa-solid fa-location-dot"></i>
+          <span>{{ item.Task.T_TITLE }}</span>
+        </p>
         <div class="cont">
           <ul class="users">
             <li class="user" v-for="user in item.Workers" :key="user">
