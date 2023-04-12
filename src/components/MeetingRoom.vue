@@ -19,6 +19,26 @@
         <p class="txt">0</p>
       </li>
     </ul>
+    <ul>
+      <li v-for="item in meetingRoom" :key="item">
+        <p class="roomname">{{ item.RoomName }}</p>
+        <div class="bar-box">
+          <p class="roomtime">
+            <span>{{ item.Startdate }}</span>
+            <span>{{ item.Enddate }}</span>
+          </p>
+          <div class="bar-wrap">
+            <span class="bar"></span>
+          </div>
+        </div>
+        <div>
+          <div class="img-box">
+            <img :src="`https://easymedia.matty.works:8443/File/Page1/Profile/${item.UserId}`" alt="">
+          </div>
+          <p class="name">{{ item.UserName }}</p>
+        </div>
+      </li>
+    </ul>
   </div>
 </template>
 
@@ -26,9 +46,15 @@
 import { meetingRoomApi } from '@/api/index.js';
 
 export default {
+  data() {
+    return {
+      meetingRoom: [],
+    }
+  },
   created() {
     meetingRoomApi()
       .then(({ data }) => {
+        this.meetingRoom = data;
         console.log(data);
       })
       .catch(error => {
