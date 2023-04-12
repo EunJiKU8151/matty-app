@@ -4,23 +4,23 @@
     <ul class="meeting-total">
       <li>
         <p class="tit">총 예약</p>
-        <p class="txt">0</p>
+        <p class="txt">{{ roomInfo.total }}</p>
       </li>
       <li>
         <p class="tit">진행 중</p>
-        <p class="txt">0</p>
+        <p class="txt">{{ roomInfo.ongoing }}</p>
       </li>
       <li>
         <p class="tit">예정</p>
-        <p class="txt">0</p>
+        <p class="txt">{{ roomInfo.schedule }}</p>
       </li>
       <li>
         <p class="tit">종료</p>
-        <p class="txt">0</p>
+        <p class="txt">{{ roomInfo.end }}</p>
       </li>
     </ul>
     <ul class="meeting-list">
-      <li v-for="item in meetingRoom" :key="item">
+      <li v-for="item in meetingRoom" :key="item.SIdx">
         <p class="roomname">{{ item.RoomName }}</p>
         <div class="bar-box">
           <p class="roomtime">
@@ -49,6 +49,12 @@ export default {
   data() {
     return {
       meetingRoom: [],
+      roomInfo: {
+        total: 0,
+        ongoing: 0,
+        schedule: 0,
+        end: 0,
+      }
     }
   },
   filters: {
@@ -68,7 +74,18 @@ export default {
     meetingRoomApi()
       .then(({ data }) => {
         this.meetingRoom = data;
-        console.log(data);
+        this.roomInfo.total = this.meetingRoom.length;
+
+        // 종료 -1, 진행중 0, 예정 1,2
+        this.meetingRoom.forEach((item) => {
+            if(item.Status == -1) {
+              this.roomInfo.end += 1;
+            } else if(item.Status == 0) {
+              this.roomInfo.ongoing += 1;
+            } else {
+              this.roomInfo.schedule += 1
+            }
+        });
       })
       .catch(error => {
         console.log("미팅룸 에러 : " + error);
