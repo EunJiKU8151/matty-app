@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    합치기테스트
     <MattyHeader v-show="isLogin"></MattyHeader>
     <router-view></router-view>
     <MattyMenubar v-show="isLogin"></MattyMenubar>
