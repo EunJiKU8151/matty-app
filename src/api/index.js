@@ -28,6 +28,11 @@ function thisUserInfoApi() {
   return instance.get('api/Vacation');
 }
 
+//도서 카테고리 API
+function bookitemGet() {
+  return instance.get("api/Category");
+}
+
 // 이지데이 API
 function ezDayApi(firstDay, lastDay) {
   return instance.get('api/User', {
@@ -122,5 +127,6 @@ export {
   meetingRoomApi,
   meetingSchApi,
   ThisUserApi,
-  contantApi
+  contantApi,
+  bookitemGet,
 }

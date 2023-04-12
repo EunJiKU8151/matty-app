@@ -3,20 +3,15 @@
     <router-link to="/book/home">Home</router-link>
     <router-link to="/book/catagory">Catagory</router-link>
 
-    <router-view></router-view>
   </div>
 </template>
 
 <script>
-// import BookToolbar from '@/components/BookToolbar.vue';
-
 export default {
-  components: { 
-    // BookToolbar,
-  },
+
 }
 </script>
 
-<style lang="scss">
+<style>
 
 </style>
