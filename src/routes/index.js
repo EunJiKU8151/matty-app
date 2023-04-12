@@ -19,6 +19,18 @@ export default new VueRouter({
     {
       path: '/main',
       component: () => import('@/views/MainPage.vue'),
+    }, 
+    {
+      path: '/book',
+      redirect: '/book/home',
+    },
+    {
+      path: '/book/home',
+      component: () => import('@/views/BookPage.vue'),
+    },
+    {
+      path: '/book/catagory',
+      component: () => import('@/views/BookPage.vue'),
     }
   ],
 });

@@ -35,4 +35,8 @@ function personGet() {
   })
 }
 
-export { loginUser, ezStoryGet, personGet }
+function bookitemGet() {
+  return instance.get('api/Category');
+}
+
+export { loginUser, ezStoryGet, personGet, bookitemGet }
