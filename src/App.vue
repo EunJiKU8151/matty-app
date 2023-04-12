@@ -1,6 +1,5 @@
 <template>
   <div id="app">
-    합치기테스트
     <MattyHeader v-show="isLogin"></MattyHeader>
     <router-view></router-view>
     <MattyMenubar v-show="isLogin"></MattyMenubar>
@@ -10,7 +9,6 @@
 <script>
 import MattyHeader from '@/components/MattyHeader.vue';
 import MattyMenubar from '@/components/MattyMenubar.vue';
-// import store from '@/store/index';
 
 export default {
   computed: {
