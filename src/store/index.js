@@ -5,9 +5,9 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    userId: '',
-    acessToken: '',
-    refreshToken: '',
+    userId: localStorage.getItem("useid") || '',
+    acessToken: localStorage.getItem("AccessToken") || '',
+    refreshToken: localStorage.getItem("RefreshToken") || '',
   },
   getters: {
     // isLogin(state) {

@@ -56,13 +56,13 @@ export default {
           passwd: this.password,
         };
         const { data } = await loginUser(userData);
-        console.log(data);
-        this.$store.commit('setUsername', this.userid);
+        // console.log(data);
+        this.$store.commit('setUsername', this.username);
         this.$store.commit('setAcessToken', data.AccessToken);
         this.$store.commit('setRefreshToken', data.RefreshToken);
         // this.logMessage = `${data.user.username} 님 환영합니다`;
         // this.initForm();
-        localStorage.setItem('useid', this.userid);
+        localStorage.setItem('useid', this.username);
         localStorage.setItem('AccessToken', data.AccessToken);
         localStorage.setItem('RefreshToken', data.RefreshToken);
         this.$router.push('/main');
