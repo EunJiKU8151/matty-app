@@ -1,5 +1,12 @@
 import axios from 'axios';
 import store from '@/store/index';
+import { dateCalculation } from '@/utils/dateCalculation.js';
+
+// 올해 1월1일, 이번달 시작일, 이번달 마지막일 구하기
+let date = dateCalculation();
+let allFirstDay = date[0];
+let firstDay = date[1];
+let lastDay = date[2];
 
 const instance = axios.create({
   baseURL: "https://mattyapi.easymedia.co.kr/",
@@ -34,7 +41,7 @@ function bookitemGet() {
 }
 
 // 이지데이 API
-function ezDayApi(firstDay, lastDay) {
+function ezDayApi() {
   return instance.get('api/User', {
     params: {
       stype: 'easyday',
@@ -45,7 +52,7 @@ function ezDayApi(firstDay, lastDay) {
 }
 
 // 생일 API
-function birthDayApi(firstDay, lastDay) {
+function birthDayApi() {
   return instance.get('api/User', {
     params: {
       stype: 'birthday',
@@ -61,11 +68,11 @@ function ezStoryApi() {
 }
 
 // 신규 입사자 API
-function newUserApi(firstDay, lastDay) {
+function newUserApi() {
   return instance.get('api/User', {
     params: {
       stype: 'new',
-      startdate: firstDay,
+      startdate: allFirstDay,
       enddate: lastDay,
     }
   });

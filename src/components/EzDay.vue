@@ -31,6 +31,7 @@
 import { swiper, swiperSlide } from 'vue-awesome-swiper';
 import 'swiper/dist/css/swiper.min.css';
 import { ezDayApi, birthDayApi } from '@/api/index';
+// import { dateCalculation } from '@/utils/dateCalculation.js';
 
 export default {
   data() {
@@ -74,11 +75,14 @@ export default {
     swiperSlide
   },
   created() {
-    let firstDay = this.$store.state.date.nowDayFirst;
-    let lastDay = this.$store.state.date.nowDayLast;
+    // var date = dateCalculation();
+
+    // let firstDay = date[1];
+    // let lastDay = date[2];
 
     // 이지데이 API Get
-    ezDayApi(firstDay, lastDay)
+    // ezDayApi(firstDay, lastDay)
+    ezDayApi()
       .then(({ data }) => {
         this.ezDayItems = data;
       }) 
@@ -88,7 +92,8 @@ export default {
       })
 
     // 생일 API Get
-    birthDayApi(firstDay, lastDay)
+    // birthDayApi(firstDay, lastDay)
+    birthDayApi()
       .then(({ data }) => {
         this.ezBirthItems = data;
       })

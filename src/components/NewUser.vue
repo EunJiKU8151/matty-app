@@ -24,6 +24,7 @@
 import { swiper, swiperSlide } from 'vue-awesome-swiper';
 import 'swiper/dist/css/swiper.min.css';
 import { newUserApi } from '@/api/index';
+// import { dateCalculation } from '@/utils/dateCalculation.js';
 
 export default {
   name: 'newSwiper',
@@ -41,11 +42,14 @@ export default {
     swiperSlide
   },
   created() {
-    let allFirstDay = this.$store.state.date.thisyearFirst;
-    let lastDay = this.$store.state.date.nowDayLast;
+    // var date = dateCalculation();
 
+    // let allFirstDay = date[0];
+    // let lastDay = date[2];
+    
     // 신규 입사자 API Get
-    newUserApi(allFirstDay, lastDay)
+    // newUserApi(allFirstDay, lastDay)
+    newUserApi()
       .then(({ data }) => {
         this.newUser = data;
       })
