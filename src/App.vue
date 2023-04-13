@@ -21,27 +21,6 @@ export default {
     MattyHeader,
     MattyMenubar,
   },
-  created() {
-    let date = new Date();
-    let year = date.getFullYear();
-    let month = date.getMonth() + 1;
-    let firstDay = new Date(year, month, 1).getDate();
-    let lastday = new Date(year, month, 0).getDate();
-
-    if(month < 10) {
-        month = `0${month}`;
-      }
-      if(firstDay < 10) {
-        firstDay = `0${firstDay}`;
-      }
-
-    let test1 = `${year}-01-01`;
-    let test2 = `${year}-${month}-${firstDay}`;
-    let test3 = `${year}-${month}-${lastday}`;
-    this.$store.commit('thisYearFirst', test1);
-    this.$store.commit('nowMonthFirst', test2);
-    this.$store.commit('nowMonthLast', test3);
-  }
 }
 </script>
 
