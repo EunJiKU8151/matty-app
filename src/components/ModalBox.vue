@@ -16,14 +16,9 @@
             </slot>
           </div>
 
-          <div class="modal-footer">
-            <slot name="footer">
-              default footer
-              <button class="modal-default-button" @click="$emit('close')">
-                OK
-              </button>
-            </slot>
-          </div>
+          <button class="modal-close-btn" @click="$emit('close')">
+            ❌
+          </button>
         </div>
       </div>
     </div>
@@ -53,7 +48,8 @@
   }
 
   .modal-container {
-    width: 300px;
+    width: 85%;
+    height: 80vh;
     margin: 0px auto;
     padding: 20px 30px;
     background-color: #fff;

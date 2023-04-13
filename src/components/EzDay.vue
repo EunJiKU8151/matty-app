@@ -30,7 +30,10 @@
     you can use custom content here to overwrite
     default content
     -->
-      <h3 slot="header">custom header</h3>
+      <h3 slot="header">기념일</h3>
+      <div slot="body">
+        내용들
+      </div>
     </ModalBox>
   </div>
 </template>
