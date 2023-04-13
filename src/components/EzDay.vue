@@ -26,13 +26,55 @@
     </swiper>
 
     <ModalBox v-if="showModal" @close="showModal = false">
-      <!--
-    you can use custom content here to overwrite
-    default content
-    -->
       <h3 slot="header">기념일</h3>
       <div slot="body">
-        내용들
+        <div class="day-mwrap">
+          <h4 class="mwrap-tit">EASYDAY</h4>
+          <ul class="days-list">
+            <li class="days-item">
+              <p class="date">04월 01일</p>
+              <ul class="users-list">
+                <li class="users-item">
+                  <div class="img-box">
+                    <img src="" alt="">
+                  </div>
+                  <div class="txt-box">
+                    <p class="name">정재헌</p>
+                    <p class="position">차장</p>
+                  </div>
+                </li>
+                <li class="users-item">
+                  <div class="img-box">
+                    <img src="" alt="">
+                  </div>
+                  <div class="txt-box">
+                    <p class="name">정재헌</p>
+                    <p class="position">차장</p>
+                  </div>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+        <div class="day-mwrap">
+          <h4 class="mwrap-tit">BIRTHDAY</h4>
+          <ul class="days-list">
+            <li class="days-item">
+              <p class="date">04월 01일</p>
+              <ul class="users-list">
+                <li class="users-item">
+                  <div class="img-box">
+                    <img src="" alt="">
+                  </div>
+                  <div class="txt-box">
+                    <p class="name">정재헌</p>
+                    <p class="position">차장</p>
+                  </div>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
       </div>
     </ModalBox>
   </div>
@@ -42,7 +84,7 @@
 import { swiper, swiperSlide } from 'vue-awesome-swiper';
 import 'swiper/dist/css/swiper.min.css';
 import { ezDayApi, birthDayApi } from '@/api/index';
-import ModalBox  from '@/components/ModalBox.vue'
+import ModalBox  from '@/components/common/ModalBox.vue'
 // import { dateCalculation } from '@/utils/dateCalculation.js';
 
 export default {
@@ -54,7 +96,7 @@ export default {
       ezDayItems: [],
       ezBirthItems: [],
       ontab: 1,
-      showModal: false,
+      showModal: true,
     }
   },
   computed: {
@@ -99,6 +141,7 @@ export default {
     ezDayApi()
       .then(({ data }) => {
         this.ezDayItems = data;
+        this.testFunc();
       }) 
       .catch(error => {
         console.log("이지데이 에러 : " + error);
@@ -115,6 +158,16 @@ export default {
         console.log("생일 에러 : " + error);
         console.log(error);
       })
+  },
+  methods: {
+    testFunc() {
+      this.ezDayItems.forEach((item) => {
+        let date = new Date(item.ENTERING_DATE);
+        let month =  date.getMonth() + 1;
+        let day =  date.getDate();
+        console.log(month, day);
+      });
+    }
   }
 }
 </script>
