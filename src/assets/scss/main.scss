@@ -33,8 +33,6 @@
 
 // 신규 입사자
 .newuser-sec .newSwiper {padding-bottom: 3px;}
-// .newuser-sec .swiper-container.newSwiper {overflow: visible;}
-// .newuser-sec .swiper-container.newSwiper .swiper-wrapper {overflow: visible;}
 .newuser-sec .newSwiper .swiper-slide {padding: 50px 20px 24px; border: 1px solid $gray_color; background: #fff; box-shadow: 0px 3px 4px -2px rgba(0, 0, 0, .1);}
 .newuser-sec .newSwiper .swiper-slide .name {font-size: 24px; font-weight: 700; color: $black_color;}
 .newuser-sec .newSwiper .swiper-slide .info {margin: 20px 0; font-size: 18px; color: $black_color;}
@@ -87,6 +85,7 @@
 
 // 미팅일정
 .meetingsch-sec .sch-list {}
+.meetingsch-sec .sch-list > li ~ li {margin-top: 20px;}
 // .meetingsch-sec .sch-list li {border: 1px solid #eee;}
 .meetingsch-sec .sch-list li .tit {font-size: 18px; font-weight: 500; color: $black_color;}
 .meetingsch-sec .sch-list li .tit span {margin-left: 4px;}
