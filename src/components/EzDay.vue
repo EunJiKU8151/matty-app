@@ -6,7 +6,7 @@
         <button class="tab" :class="[ontab === 1 ? 'on' : '']" @click="tabClick(ontab = 1)">이지데이</button>
         <button class="tab" :class="[ontab === 2 ? 'on' : '']" @click="tabClick(ontab = 2)">생일자</button>
       </div>
-      <button class="more-btn">더보기</button>
+      <button class="more-btn" id="show-modal" @click="showModal = true">더보기</button>
     </div>
     <swiper ref="daySwiper" class="daySwiper" :options="swiperOption" role="itemlist">
       <swiper-slide v-for="item in onContent" v-bind:key="item.TREEID" ref="item">
@@ -24,6 +24,14 @@
         </router-link>
       </swiper-slide>
     </swiper>
+
+    <ModalBox v-if="showModal" @close="showModal = false">
+      <!--
+    you can use custom content here to overwrite
+    default content
+    -->
+      <h3 slot="header">custom header</h3>
+    </ModalBox>
   </div>
 </template>
 
@@ -31,6 +39,7 @@
 import { swiper, swiperSlide } from 'vue-awesome-swiper';
 import 'swiper/dist/css/swiper.min.css';
 import { ezDayApi, birthDayApi } from '@/api/index';
+import ModalBox  from '@/components/ModalBox.vue'
 // import { dateCalculation } from '@/utils/dateCalculation.js';
 
 export default {
@@ -42,6 +51,7 @@ export default {
       ezDayItems: [],
       ezBirthItems: [],
       ontab: 1,
+      showModal: false,
     }
   },
   computed: {
@@ -72,7 +82,8 @@ export default {
   },
   components: {
     swiper,
-    swiperSlide
+    swiperSlide,
+    ModalBox
   },
   created() {
     // var date = dateCalculation();
