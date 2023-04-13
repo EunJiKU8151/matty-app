@@ -78,6 +78,7 @@ a {
   bottom: 0;
   left: 0;
   right: 0;
+  z-index: 10;
   height: 64px;
   display: flex;
   border-top: 1px solid #eee;
@@ -128,24 +129,108 @@ a {
   margin-bottom: 40px;
 }
 
-.main-page {
-  padding-bottom: 64px;
+.login-form .form .login-btn {
+  width: 100%;
+  height: 54px;
+  margin-top: 30px;
+  font-weight: 500;
+  color: #fff;
+  border-radius: 4px;
+  background: #44b6ae;
 }
 
-.ezstory-sec .swiper-container.ezSwiper .swiper-wrapper .swiper-slide {
+.main-page .sec:first-child .sec-tit {
+  margin-top: 0;
+}
+
+.ezday-sec .tab-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.ezday-sec .tab-head .tab-area .tab {
+  font-size: 18px;
+  color: #666;
+}
+
+.ezday-sec .tab-head .tab-area .tab ~ .tab {
+  margin-left: 10px;
+}
+
+.ezday-sec .tab-head .tab-area .tab.on {
+  font-weight: 700;
+  color: #000;
+}
+
+.ezday-sec .tab-head .more-btn {
+  font-size: 14px;
+  color: #000;
+}
+
+.ezday-sec .daySwiper {
+  height: 120px;
+}
+
+.ezday-sec .daySwiper .swiper-slide {
+  justify-content: center;
+  width: auto !important;
+}
+
+.ezday-sec .daySwiper .swiper-slide ~ .swiper-slide {
+  margin-left: 10px;
+}
+
+.ezday-sec .daySwiper .swiper-slide .img-box {
+  width: 60px;
+  height: 60px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.ezday-sec .daySwiper .swiper-slide .img-box img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.ezday-sec .daySwiper .swiper-slide .txt-box .name {
+  margin: 10px 0 4px;
+  text-align: center;
+}
+
+.ezday-sec .daySwiper .swiper-slide .txt-box .day {
+  width: 20px;
+  height: 18px;
+  margin: 0 auto;
+  font-size: 12px;
+  text-align: center;
+  color: #fff;
+  border-radius: 5px;
+  background: #44b6ae;
+}
+
+.ezday-sec .daySwiper .swiper-slide .txt-box .birthday {
+  font-size: 13px;
+  color: #44b6ae;
+}
+
+.ezstory-sec .ezSwiper .swiper-slide {
   height: 250px;
   background: #f3f4f7;
   cursor: pointer;
 }
 
-.ezstory-sec .swiper-container.ezSwiper .swiper-wrapper .swiper-slide a {
+.ezstory-sec .ezSwiper .swiper-slide a {
   position: relative;
   display: inline-block;
   width: 100%;
   height: 100%;
 }
 
-.ezstory-sec .swiper-container.ezSwiper .swiper-wrapper .swiper-slide a .img-box {
+.ezstory-sec .ezSwiper .swiper-slide a .img-box {
   position: absolute;
   top: 0;
   left: 0;
@@ -153,14 +238,14 @@ a {
   height: 100%;
 }
 
-.ezstory-sec .swiper-container.ezSwiper .swiper-wrapper .swiper-slide a .img-box img {
+.ezstory-sec .ezSwiper .swiper-slide a .img-box img {
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
 }
 
-.ezstory-sec .swiper-container.ezSwiper .swiper-wrapper .swiper-slide a .img-box::after {
+.ezstory-sec .ezSwiper .swiper-slide a .img-box::after {
   content: "";
   position: absolute;
   left: 0;
@@ -171,7 +256,7 @@ a {
   opacity: 0.8;
 }
 
-.ezstory-sec .swiper-container.ezSwiper .swiper-wrapper .swiper-slide a .tit {
+.ezstory-sec .ezSwiper .swiper-slide a .tit {
   position: absolute;
   bottom: 20px;
   left: 20px;
@@ -180,69 +265,65 @@ a {
   color: #fff;
 }
 
-.ezstory-sec .swiper-container.ezSwiper {
+.ezstory-sec .ezSwiper {
   padding-bottom: 30px;
 }
 
-.ezstory-sec .swiper-container.ezSwiper .swiper-pagination {
+.ezstory-sec .ezSwiper .swiper-pagination {
   bottom: 0;
 }
 
-.ezstory-sec .swiper-container.ezSwiper .swiper-pagination .swiper-pagination-bullet {
+.ezstory-sec .ezSwiper .swiper-pagination .swiper-pagination-bullet {
   border-radius: 8px;
   background: #666;
   transition: width 0.3s;
 }
 
-.ezstory-sec .swiper-container.ezSwiper .swiper-pagination .swiper-pagination-bullet.swiper-pagination-bullet-active {
+.ezstory-sec .ezSwiper .swiper-pagination .swiper-pagination-bullet.swiper-pagination-bullet-active {
   width: 30px;
   background: #44b6ae;
 }
 
-.newuser-sec .swiper-container.newSwiper {
-  overflow: visible;
+.newuser-sec .newSwiper {
+  padding-bottom: 3px;
 }
 
-.newuser-sec .swiper-container.newSwiper .swiper-wrapper {
-  overflow: visible;
-}
-
-.newuser-sec .swiper-container.newSwiper .swiper-wrapper .swiper-slide {
+.newuser-sec .newSwiper .swiper-slide {
   padding: 50px 20px 24px;
   border: 1px solid #eee;
   background: #fff;
   box-shadow: 0px 3px 4px -2px rgba(0, 0, 0, 0.1);
 }
 
-.newuser-sec .swiper-container.newSwiper .swiper-wrapper .swiper-slide .name {
+.newuser-sec .newSwiper .swiper-slide .name {
   font-size: 24px;
   font-weight: 700;
   color: #000;
 }
 
-.newuser-sec .swiper-container.newSwiper .swiper-wrapper .swiper-slide .info {
+.newuser-sec .newSwiper .swiper-slide .info {
   margin: 20px 0;
   font-size: 18px;
   color: #000;
 }
 
-.newuser-sec .swiper-container.newSwiper .swiper-wrapper .swiper-slide .contact {
+.newuser-sec .newSwiper .swiper-slide .contact {
   font-size: 11px;
   color: #000;
 }
 
-.newuser-sec .swiper-container.newSwiper .swiper-wrapper .swiper-slide .addr {
+.newuser-sec .newSwiper .swiper-slide .addr {
   margin: 8px 0;
   font-size: 11px;
   color: #000;
 }
 
-.newuser-sec .swiper-container.newSwiper .swiper-wrapper .swiper-slide .phone {
+.newuser-sec .newSwiper .swiper-slide .phone {
   font-size: 11px;
   color: #000;
 }
 
-.newuser-sec .swiper-container.newSwiper .swiper-wrapper .swiper-slide .url {
+.newuser-sec .newSwiper .swiper-slide .url {
   font-size: 11px;
   color: #000;
 }
@@ -251,16 +332,17 @@ a {
   margin-bottom: 20px;
 }
 
-.board-sec .tab-area .swiper-container.boardTabSwiper .swiper-slide {
+.board-sec .tab-area .boardTabSwiper .swiper-slide {
   width: auto;
 }
 
-.board-sec .tab-area .swiper-container.boardTabSwiper .swiper-slide a {
+.board-sec .tab-area .boardTabSwiper .swiper-slide a {
   font-size: 18px;
   color: #666;
 }
 
-.board-sec .tab-area .swiper-container.boardTabSwiper .swiper-slide.on a {
+.board-sec .tab-area .boardTabSwiper .swiper-slide.on a {
+  font-weight: 700;
   color: #000;
 }
 
@@ -343,6 +425,336 @@ a {
   text-align: center;
 }
 
+.meeting-sec .meeting-total {
+  display: flex;
+}
+
+.meeting-sec .meeting-total li {
+  flex: 1;
+  text-align: center;
+}
+
+.meeting-sec .meeting-total li .tit {
+  font-size: 18px;
+  font-weight: 500;
+  color: #000;
+}
+
+.meeting-sec .meeting-total li .txt {
+  font-size: 20px;
+  font-weight: 500;
+  color: #000;
+}
+
+.meeting-sec .meeting-list li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.meeting-sec .meeting-list li .roomname {
+  width: 25%;
+  font-weight: 500;
+  color: #000;
+  text-align: center;
+}
+
+.meeting-sec .meeting-list li .bar-box {
+  width: 50%;
+}
+
+.meeting-sec .meeting-list li .bar-box .roomtime {
+  text-align: center;
+}
+
+.meeting-sec .meeting-list li .bar-box .roomtime span {
+  font-size: 13px;
+  font-weight: 500;
+  color: #000;
+}
+
+.meeting-sec .meeting-list li .bar-box .bar-wrap {
+  position: relative;
+  width: 100%;
+  height: 5px;
+  margin: 5px 0;
+  border: 1px solid #44b6ae;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.meeting-sec .meeting-list li .bar-box .bar-wrap .bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background: #44b6ae;
+}
+
+.meeting-sec .meeting-list li .profile {
+  width: 25%;
+  text-align: center;
+}
+
+.meeting-sec .meeting-list li .profile .img-box {
+  width: 30px;
+  height: 30px;
+  margin: 0 auto;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.meeting-sec .meeting-list li .profile .img-box img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.meeting-sec .meeting-list li .profile .name {
+  margin-top: 5px;
+  font-size: 12px;
+  font-weight: 500;
+  color: #000;
+}
+
+.meetingsch-sec .sch-list > li ~ li {
+  margin-top: 20px;
+}
+
+.meetingsch-sec .sch-list li .tit {
+  font-size: 18px;
+  font-weight: 500;
+  color: #000;
+}
+
+.meetingsch-sec .sch-list li .tit span {
+  margin-left: 4px;
+}
+
+.meetingsch-sec .sch-list li .cont {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-top: 18px;
+}
+
+.meetingsch-sec .sch-list li .cont .users {
+  display: flex;
+}
+
+.meetingsch-sec .sch-list li .cont .users .user ~ .user {
+  margin-left: 10px;
+}
+
+.meetingsch-sec .sch-list li .cont .users .user .img-box {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.meetingsch-sec .sch-list li .cont .users .user .img-box img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.meetingsch-sec .sch-list li .cont .users .user .name {
+  margin-top: 8px;
+  font-size: 12px;
+  font-weight: 500;
+  color: #000;
+}
+
+.meetingsch-sec .sch-list li .cont .time {
+  padding: 2px 6px;
+  font-size: 12px;
+  color: #fff;
+  border-radius: 5px;
+  background: orange;
+}
+
+.contact-sec .contact-list .item {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 15px;
+  border-bottom: 1px solid #eee;
+}
+
+.contact-sec .contact-list .item .img-box {
+  width: 50px;
+  height: 50px;
+  margin-right: 30px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.contact-sec .contact-list .item .img-box img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.contact-sec .contact-list .item .txt-box {
+  display: flex;
+  align-items: center;
+}
+
+.contact-sec .contact-list .item .txt-box .name {
+  margin-right: 20px;
+  font-size: 18px;
+  font-weight: 700;
+  color: #333;
+}
+
+.contact-sec .contact-list .item .txt-box .info {
+  font-size: 12px;
+  color: #333;
+}
+
+.mypage-sec .secTit-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.mypage-sec .secTit-box .sec-tit {
+  margin: 0;
+}
+
+.mypage-sec .secTit-box .img-box {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.mypage-sec .secTit-box .img-box img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.mypage-sec .info-wrap {
+  margin: 30px 0;
+}
+
+.mypage-sec .info-wrap dl ~ dl {
+  margin-top: 20px;
+}
+
+.mypage-sec .info-wrap dl dt {
+  color: #666;
+}
+
+.mypage-sec .info-wrap dl dd {
+  margin-top: 8px;
+  font-size: 18px;
+  color: #000;
+}
+
+.mypage-sec .out-btn {
+  width: 100%;
+  height: 30px;
+  color: #fff;
+  border-radius: 5px;
+  background: #44b6ae;
+}
+
+.profile-sec .prev-btn {
+  font-size: 20px;
+}
+
+.profile-sec .profile-area {
+  display: flex;
+  margin-top: 30px;
+  margin-bottom: 40px;
+}
+
+.profile-sec .profile-area .img-box {
+  width: 80px;
+  height: 80px;
+  margin-right: 10px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.profile-sec .profile-area .img-box img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.profile-sec .profile-area .txt-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.profile-sec .profile-area .txt-box .names .name {
+  margin-right: 4px;
+  font-size: 20px;
+  font-weight: 700;
+  color: #000;
+}
+
+.profile-sec .profile-area .txt-box .names .position {
+  font-size: 16px;
+  color: #000;
+}
+
+.profile-sec .profile-area .txt-box .group {
+  font-size: 16px;
+  color: #666;
+  opacity: 0.6;
+}
+
+.profile-sec .info-aera .info {
+  padding: 16px 0;
+}
+
+.profile-sec .info-aera .info:first-child {
+  padding-top: 0;
+}
+
+.profile-sec .info-aera .info ~ .info {
+  border-top: 1px solid #eee;
+}
+
+.profile-sec .info-aera .info .tit {
+  margin-bottom: 6px;
+}
+
+.profile-sec .info-aera .info:last-child .tit {
+  margin-bottom: 6px;
+  color: #666;
+  opacity: 0.6;
+}
+
+.profile-sec .info-aera .info i.tit {
+  font-size: 20px;
+  color: #44b6ae;
+}
+
+.profile-sec .info-aera .info a {
+  display: block;
+}
+
+.profile-sec .info-aera .info .txt {
+  font-size: 18px;
+  color: #333;
+}
+
 * {
   font-family: "Noto Sans KR", sans-serif;
   box-sizing: border-box;
@@ -351,6 +763,7 @@ a {
 #app {
   width: 90%;
   margin: 0 auto;
+  padding-bottom: 100px;
 }
 
 .form .input-box {
@@ -388,14 +801,14 @@ a {
   color: #666;
 }
 
-.btn {
-  width: 100%;
-  height: 54px;
-  margin-top: 30px;
-  font-weight: 500;
-  color: #fff;
-  border-radius: 4px;
-  background: #44b6ae;
+button {
+  padding: 0;
+  border: none;
+  border-radius: 0;
+  background: inherit;
+  box-shadow: none;
+  overflow: visible;
+  cursor: pointer;
 }
 
 .error.posi {
