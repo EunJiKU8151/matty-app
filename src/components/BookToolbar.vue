@@ -1,8 +1,9 @@
 <template>
   <div>
-    <router-link to="/book/home">Home</router-link>
-    <router-link to="/book/catagory">Catagory</router-link>
-
+    <div class="book-tab-list">
+      <router-link to="/book/home" class="book-tab">Home</router-link>
+      <router-link to="/book/catagory" class="book-tab">Catagory</router-link>
+    </div>
   </div>
 </template>
 

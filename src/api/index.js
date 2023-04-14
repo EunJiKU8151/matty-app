@@ -36,8 +36,29 @@ function thisUserInfoApi() {
 }
 
 //도서 카테고리 API
-function bookitemGet() {
+function bookItemGet() {
   return instance.get("api/Category");
+}
+
+//도서 홈 신규도서 API
+function newBookGet() {
+  return instance.get("api/Book");
+}
+
+//도서 홈 검색 API
+function searchBookGet(seardata) {
+  return instance.get("api/Book", {
+    params: {
+      field: "BOOK_TITLE",
+      keyword: seardata,
+      size: 80,
+    }
+  });
+}
+
+//도서 이달의 독서왕 API
+function monthKingGet() {
+  return instance.get("api/Rent");
 }
 
 // 이지데이 API
@@ -135,5 +156,8 @@ export {
   meetingSchApi,
   ThisUserApi,
   contantApi,
-  bookitemGet,
+  bookItemGet,
+  newBookGet,
+  monthKingGet,
+  searchBookGet
 }

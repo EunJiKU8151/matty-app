@@ -1,10 +1,70 @@
 // tab
-
+.book-tab-list {display: flex; text-align: center;}
+.book-tab {display: block; width: 50%; padding: 15px 0; border-bottom: 3px solid #eee;}
+.book-tab.router-link-active {font-weight: 500; border-color: #12abae;}
 
 // 신규 도서
+.search-form {display: flex; justify-content: space-between; align-items: center; height: 50px; margin-bottom: 20px;}
+.search-form label {width: 30%; color: #44b6ae;}
+.search-form .input-wrap {position: relative; width: 70%; height: 36px;}
+.search-form .input-wrap input {height: 100%; border: 1px solid #eee;}
+.search-form .input-wrap button {position: absolute; right: 8px; top: 50%; width: 30px; height: 30px; transform: translateY(-50%);}
+.search-form .input-wrap button i::before {font-size: 16px;}
+.newbookSlide .ig-box {position: relative; padding-bottom: 65%; overflow: hidden;}
+.newbookSlide .ig-box img {position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 100%;}
+.newbookSlide .txt-box {position: absolute; left: 12%; right: 12%; bottom: 6%; height: 30%; display: flex; flex-wrap: wrap; align-content: center; border-radius: 12px; background-color: #fff; box-shadow: 0px 3px 10px 1px rgba(0, 0, 0, 0.4);}
+.newbookSlide .txt-box p {width: 100%; text-align: center;}
+.newbookSlide .txt-box .book-title {font-weight: bold;}
+.newbookSlide .txt-box .author {font-size: 12px;}
 
+//북 검색
+.book-modal-tit {margin-bottom: 20px;}
+.book-modal-list li {display: flex; padding: 10px 0; border-top: 1px solid #ccc;}
+.book-modal-list li .ig-book {flex-shrink: 0; width: 30%; margin-right: 15px;}
+.book-modal-list li .ig-book img {width: 100%; height: 100%; object-fit: cover;}
+.book-modal-list li .book-text .tit {font-size: 15px; font-weight: 500;}
+.book-modal-list li .book-text p + p {margin-top: 5px;}
+.book-modal-list li .book-text .catagory {font-size: 14px; font-weight: 500;}
+.book-modal-list li .book-text .author {margin-top: 30px; font-size: 12px; font-weight: 500; color: #222;}
+.book-modal-list li .book-text .publish {margin-top: 0; font-size: 12px; font-weight: 500; color: #222;}
 
 // 이달의 독서왕
-
+.bookking-sec li {display: flex; align-items: center; justify-content: space-between; padding: 16px 0; border-bottom: 1px solid #eee;}
+.bookking-sec li .left-area {display: flex; align-items: center;}
+.bookking-sec li .left-area > span {width: 40px; font-size: 18px; font-weight: 500;}
+.bookking-sec li .person-ig {position: relative; width: 50px; height: 50px;}
+.bookking-sec li .person-ig span {position: absolute; top: -15px; left: 50%; transform: translateX(-50%);}
+.bookking-sec li .person-ig span i {font-size: 22px; color: #44b6ae;}
+.bookking-sec li .person-ig img {width: 100%; height: 100%; border-radius: 50%; overflow: hidden; object-fit: cover;}
+.bookking-sec li .name-box {text-align: center;}
+.bookking-sec li .name-box .name {display: block; margin-bottom: 5px; font-size: 18px; font-weight: 500;}
+.bookking-sec li .name-box .part-area {font-size: 12px; color: #bbb;}
+.bookking-sec li .rent-box {width: 60px; height: 40px; border-radius: 4px; background-color: #ebebeb;}
+.bookking-sec li .rent-box p {display: flex; flex-wrap: wrap; justify-content: center; align-items: center; height: 100%;}
+.bookking-sec li .rent-box i {color: #44b6ae;}
+.bookking-sec li .rent-box span {display: block; margin-left: 5px; font-weight: 500; color: #333;}
 
 // 카테고리
+.book-list {display: flex; justify-content: space-between; flex-wrap: wrap; margin-top: 30px;}
+.book-item {position: relative; width: calc((100% - 16px) / 2); height: 250px; padding: 15px;}
+.book-item:nth-child(n+3) {margin-top: 16px;}
+.book-item::after {content: ""; position: absolute; left: 0; top: 0; width: 100%; height: 100%; background: rgba($color: #000000, $alpha: .2);}
+.book-item:first-child {background: url(@/assets/images/book-category-cover1.jpg) center center / cover;}
+.book-item:nth-child(2) {background: url(@/assets/images/book-category-cover2.jpg) center center / cover;}
+.book-item:nth-child(3) {background: url(@/assets/images/book-category-cover3.jpg) center center / cover;}
+.book-item:nth-child(4) {background: url(@/assets/images/book-category-cover4.jpg) center center / cover;}
+.book-item:nth-child(5) {background: url(@/assets/images/book-category-cover5.jpg) center center / cover;}
+.book-item:nth-child(6) {background: url(@/assets/images/book-category-cover6.jpg) center center / cover;}
+.book-item:nth-child(7) {background: url(@/assets/images/book-category-cover7.jpg) center center / cover;}
+.book-item:nth-child(8) {background: url(@/assets/images/book-category-cover8.jpg) center center / cover;}
+.book-item:nth-child(9) {background: url(@/assets/images/book-category-cover9.jpg) center center / cover;}
+.book-item:nth-child(10) {background: url(@/assets/images/book-category-cover10.jpg) center center / cover;}
+.book-item:nth-child(11) {background: url(@/assets/images/book-category-cover11.jpg) center center / cover;}
+.book-item:nth-child(12) {background: url(@/assets/images/book-category-cover12.jpg) center center / cover;}
+.book-item:nth-child(13) {background: url(@/assets/images/book-category-cover13.jpg) center center / cover;}
+.book-item:nth-child(14) {background: url(@/assets/images/book-category-cover14.jpg) center center / cover;}
+.book-item:nth-child(15) {background: url(@/assets/images/book-category-cover15.jpg) center center / cover;}
+.book-item:nth-child(16) {background: url(@/assets/images/book-category-cover16.jpg) center center / cover;}
+.book-item:nth-child(17) {background: url(@/assets/images/book-category-cover17.jpg) center center / cover;}
+.book-item:nth-child(18) {background: url(@/assets/images/book-category-cover18.jpg) center center / cover;}
+.book-cata-title {z-index: 1; position: relative; font-weight: 500; color: #fff;}

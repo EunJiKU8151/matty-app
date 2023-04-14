@@ -24,7 +24,7 @@ const router = new VueRouter({
     },
     {
       path: '/book',
-      // redirect: '/book',
+      redirect: '/book/home',
       component: () => import('@/views/BookPage.vue'),
     },
     {
@@ -33,7 +33,7 @@ const router = new VueRouter({
       meta: { auth: true },
       component: () => import('@/views/BookPage.vue'), children: [{
         path: 'home',
-        component: () => import('@/components/BookhomePage.vue'),
+        component: () => import('@/components/BookHome.vue'),
       }],
     },
     {
@@ -42,7 +42,7 @@ const router = new VueRouter({
       meta: { auth: true },
       component: () => import('@/views/BookPage.vue'), children: [{
         path: 'catagory',
-        component: () => import('@/components/BookcataPage.vue'),
+        component: () => import('@/components/BookCatagory.vue'),
       }],
     },
     {
