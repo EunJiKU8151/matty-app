@@ -31,25 +31,16 @@
         <div class="day-mwrap">
           <h4 class="mwrap-tit">EASYDAY</h4>
           <ul class="days-list">
-            <li class="days-item">
-              <p class="date">04월 01일</p>
+            <li class="days-item" v-for="(item, idx) in modalDayItems" :key="idx">
+              <p class="date">{{ item[0].ENTERING_DATE | MMdd }}</p>
               <ul class="users-list">
-                <li class="users-item">
+                <li class="users-item" v-for="user in item" :key="user">
                   <div class="img-box">
-                    <img src="" alt="">
+                    <img :src="`https://easymedia.matty.works:8443/File/Page1/Profile/${user.EMAIL}`" alt="">
                   </div>
                   <div class="txt-box">
-                    <p class="name">정재헌</p>
-                    <p class="position">차장</p>
-                  </div>
-                </li>
-                <li class="users-item">
-                  <div class="img-box">
-                    <img src="" alt="">
-                  </div>
-                  <div class="txt-box">
-                    <p class="name">정재헌</p>
-                    <p class="position">차장</p>
+                    <p class="name">{{ user.NAME }}</p>
+                    <p class="position">{{ user.CALL_NAME }}</p>
                   </div>
                 </li>
               </ul>
@@ -59,16 +50,16 @@
         <div class="day-mwrap">
           <h4 class="mwrap-tit">BIRTHDAY</h4>
           <ul class="days-list">
-            <li class="days-item">
-              <p class="date">04월 01일</p>
+            <li class="days-item" v-for="(item, idx) in modalBirthItems" :key="idx">
+              <p class="date">{{ item[0].EI_BIRTH_DATE | MMdd }}</p>
               <ul class="users-list">
-                <li class="users-item">
+                <li class="users-item" v-for="user in item" :key="user">
                   <div class="img-box">
-                    <img src="" alt="">
+                    <img :src="`https://easymedia.matty.works:8443/File/Page1/Profile/${user.EMAIL}`" alt="">
                   </div>
                   <div class="txt-box">
-                    <p class="name">정재헌</p>
-                    <p class="position">차장</p>
+                    <p class="name">{{ user.NAME }}</p>
+                    <p class="position">{{ user.CALL_NAME }}</p>
                   </div>
                 </li>
               </ul>
@@ -95,8 +86,10 @@ export default {
       },
       ezDayItems: [],
       ezBirthItems: [],
+      modalDayItems: [],
+      modalBirthItems: [],
       ontab: 1,
-      showModal: true,
+      showModal: false,
     }
   },
   computed: {
@@ -131,17 +124,12 @@ export default {
     ModalBox
   },
   created() {
-    // var date = dateCalculation();
-
-    // let firstDay = date[1];
-    // let lastDay = date[2];
-
     // 이지데이 API Get
     // ezDayApi(firstDay, lastDay)
     ezDayApi()
       .then(({ data }) => {
         this.ezDayItems = data;
-        this.testFunc();
+        this.modalSetEz();
       }) 
       .catch(error => {
         console.log("이지데이 에러 : " + error);
@@ -153,6 +141,7 @@ export default {
     birthDayApi()
       .then(({ data }) => {
         this.ezBirthItems = data;
+        this.modalSetBirth();
       })
       .catch(error => {
         console.log("생일 에러 : " + error);
@@ -160,13 +149,43 @@ export default {
       })
   },
   methods: {
-    testFunc() {
-      this.ezDayItems.forEach((item) => {
+    // 이지데이 날짜별로 Set
+    modalSetEz() {
+      const ezDayData = this.ezDayItems.map(function(item) {
         let date = new Date(item.ENTERING_DATE);
-        let month =  date.getMonth() + 1;
         let day =  date.getDate();
-        console.log(month, day);
-      });
+        return day;
+        }).reduce((setData, itemDay) => {
+          if (setData.indexOf(itemDay) < 0) setData.push(itemDay)
+          return setData
+        }, []);
+
+      const newEzList = ezDayData.map(itemDay => this.ezDayItems.filter(function(o) {
+        let date = new Date(o.ENTERING_DATE);
+        let day =  date.getDate();
+        return day === itemDay;
+      }));
+
+    this.modalDayItems = newEzList;
+    },
+    // 생일 날짜별로 Set
+    modalSetBirth() {
+      const birthDayData = this.ezBirthItems.map(function(item) {
+        let date = new Date(item.EI_BIRTH_DATE);
+        let day =  date.getDate();
+        return day;
+        }).reduce((setData, itemDay) => {
+          if (setData.indexOf(itemDay) < 0) setData.push(itemDay)
+          return setData
+        }, []);
+
+      const newBirthList = birthDayData.map(itemDay => this.ezBirthItems.filter(function(o) {
+        let date = new Date(o.EI_BIRTH_DATE);
+        let day =  date.getDate();
+        return day === itemDay;
+      }));
+
+    this.modalBirthItems = newBirthList;
     }
   }
 }

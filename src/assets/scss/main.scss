@@ -21,7 +21,7 @@
 .day-mwrap .mwrap-tit {font-size: 14px; font-weight: 500; color: $black_color;}
 .day-mwrap .days-list .days-item {padding: 20px 0 20px; border-bottom: 1px solid #eee;}
 .day-mwrap .days-list .days-item .date {font-size: 15px; color: $mediumblack_color; opacity: .4;}
-.day-mwrap .days-list .days-item .users-list {display: flex;}
+.day-mwrap .days-list .days-item .users-list {display: flex; flex-wrap: wrap;}
 .day-mwrap .days-list .days-item .users-list .users-item {display: flex; align-items: center; padding: 20px 20px 0 0;}
 .day-mwrap .days-list .days-item .users-list .users-item .img-box {width: 40px; height: 40px; margin-right: 16px; border-radius: 8px; overflow: hidden;}
 .day-mwrap .days-list .days-item .users-list .users-item .img-box img {width: 100%; height: 100%; object-fit: cover;}
