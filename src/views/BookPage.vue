@@ -1,22 +1,20 @@
 <template>
   <div>
-    <router-link to="/book/home">Home</router-link>
-    <router-link to="/book/catagory">Catagory</router-link>
-
+    <bookToolbar></bookToolbar>
     <router-view></router-view>
   </div>
 </template>
 
 <script>
-// import BookToolbar from '@/components/BookToolbar.vue';
+import BookToolbar from '@/components/BookToolbar.vue';
+
 
 export default {
   components: { 
-    // BookToolbar,
+    BookToolbar,
   },
 }
 </script>
 
 <style lang="scss">
-
 </style>
