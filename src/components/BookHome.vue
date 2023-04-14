@@ -6,7 +6,7 @@
         <label for="search-book">EzLibrary</label>
         <div class="input-wrap">
           <input id="search-book" type="text" placeholder="검색할 도서를 입력해주세요." v-model="searchbook" @keyup.enter="[showModal = true, booksearch() ]">
-          <button type="button" @click="[showModal = true, booksearch() ]">
+          <button type="button" v-if="!searchbook ==''" @click="[showModal = true, booksearch() ]">
             <i class="fa-solid fa-magnifying-glass"></i>
           </button>
         </div>
