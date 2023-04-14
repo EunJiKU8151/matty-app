@@ -91,7 +91,19 @@ export default {
         console.log("미팅룸 에러 : " + error);
         console.log(error);
       })
-  }
+      // this.test();
+  },
+  methods: {
+    // bar
+    // barMotion() {
+
+    // }
+    // startTimer: function() {
+		// 	// this.timer = setInterval(() => this.countdown(), 1000);
+		// 	setTimeout(() => console.log("셋타이머"), 1000);
+		// 	// this.resetButton = true;
+		// },
+  },
 }
 </script>
 
