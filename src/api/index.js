@@ -40,6 +40,17 @@ function bookItemGet() {
   return instance.get("api/Category");
 }
 
+//도서 카테고리 리스트
+function BookListGet(id) {
+  return instance.get("api/Book", {
+    params: {
+      c: id,
+      // size: "10" * id
+      // p: id
+    }
+  });
+}
+
 //도서 홈 신규도서 API
 function newBookGet() {
   return instance.get("api/Book");
@@ -159,5 +170,6 @@ export {
   bookItemGet,
   newBookGet,
   monthKingGet,
-  searchBookGet
+  searchBookGet,
+  BookListGet
 }

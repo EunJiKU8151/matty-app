@@ -5,8 +5,8 @@
       <div class="search-form">
         <label for="search-book">EzLibrary</label>
         <div class="input-wrap">
-          <input id="search-book" type="text" placeholder="검색할 도서를 입력해주세요." v-model="searchbook" @keyup.enter="[showModal = true, booksearch() ]">
-          <button type="button" v-if="!searchbook ==''" @click="[showModal = true, booksearch() ]">
+          <input id="search-book" type="text" placeholder="검색할 도서를 입력해주세요." v-model="searchbook" @keyup.enter="searchCheck()">
+          <button type="button" @click="searchCheck()">
             <i class="fa-solid fa-magnifying-glass"></i>
           </button>
         </div>
@@ -52,7 +52,7 @@
         </li>
       </ul>
     </div>
-    <ModalBox v-if="showModal && !searchbook ==''" @close="showModal = false">
+    <ModalBox v-if="showModal" @close="showModal = false">
       <div slot="body">
         <p class="book-modal-tit">
           "<span>{{ searchbook }}</span>" 이 포함된 검색 결과입니다.
@@ -119,6 +119,7 @@ export default {
     ModalBox
   },
   methods: {
+    //input에 값이 있을경우
     booksearch(){
       const seardata = this.searchbook;
 
@@ -130,9 +131,17 @@ export default {
         .catch(error => {
           console.log(error);
         })
+
+      this.showModal = true;
     },
+    //input에 값이 없을 경우
     nosearch() {
       alert("검색 결과가 없습니다.");
+      this.showModal = false;
+    },
+    //input에 값이 있는지 체크
+    searchCheck() {
+      return this.searchbook.length <= 0 ? this.nosearch() : this.booksearch();
     }
   }
 }
