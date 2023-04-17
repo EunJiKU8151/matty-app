@@ -33,6 +33,10 @@ export default {
     let userId = 618;
     
     // 
+    /* 
+      tip 
+      async await 쓰는 이유가 then과 catch를 안쓰려고 하는거죠?
+    */
     await ThisUserApi(userId)
       .then(({ data }) => {
         this.myDept = data.DEPT_CODE

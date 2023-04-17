@@ -9,6 +9,11 @@
         </p>
         <div class="cont">
           <ul class="users">
+            <!-- 
+              tip 
+              :key에는 객체를 넣으면 안되고 객체 안에 유니크한 값을 넣어야됨 
+              현재 :key="user"를 넣어서 경고메시지가 뜨고 있는데 user.TW_IDX등 유니크한 값을 넣어보세용
+            -->
             <li class="user" v-for="user in item.Workers" :key="user">
               <div class="img-box">
                 <img :src="`https://easymedia.matty.works:8443/File/Page1/Profile/${user.TW_ID}`" alt="">
@@ -35,6 +40,7 @@ export default {
     }
   },
   filters: {
+    /* tip 인덴트 맞춰주세용 */
       HM: function(value) {
       let itemDate = new Date(value);
       let hours = itemDate.getHours();

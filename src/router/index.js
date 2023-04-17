@@ -31,6 +31,10 @@ const router = new VueRouter({
       path: '/book',
       name: 'bookhome',
       meta: { auth: true },
+      /* 
+        tip
+        children 속성은 개행해서 한눈에 잘 띄게 해주세용
+      */
       component: () => import('@/views/BookPage.vue'), children: [{
         path: 'home',
         component: () => import('@/components/BookHome.vue'),

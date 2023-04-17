@@ -12,6 +12,10 @@
         <ul class="book-modal-list">
           <li v-for="modalBook in modalBooks" :key="modalBook.idx">
             <div class="ig-book">
+              <!-- 
+                tip
+                자주 쓰이는 url은 ENV 파일에 담아보세용
+               -->
               <img :src="`https://www.ezcampus.kr:444/File/Details/${modalBook.BOOK_UKEY}`" alt="">
             </div>
             <div class="book-text">
