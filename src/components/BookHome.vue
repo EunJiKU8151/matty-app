@@ -5,8 +5,8 @@
       <div class="search-form">
         <label for="search-book">EzLibrary</label>
         <div class="input-wrap">
-          <input id="search-book" type="text" placeholder="검색할 도서를 입력해주세요." v-model="searchbook" @keyup.enter="searchCheck()">
-          <button type="button" @click="searchCheck()">
+          <input id="search-book" type="text" placeholder="검색할 도서를 입력해주세요." v-model="searchbook" @keyup.enter="booksearch()">
+          <button type="button" @click="booksearch()">
             <i class="fa-solid fa-magnifying-glass"></i>
           </button>
         </div>
@@ -127,12 +127,16 @@ export default {
         .then(({ data }) => {
           console.log(data);
           this.searchList = data;
+          if(data.length <= 0 || this.searchbook.length <= 0){
+            this.nosearch();
+          } else {
+            this.showModal = true;
+          }
         })
         .catch(error => {
           console.log(error);
         })
 
-      this.showModal = true;
     },
     //input에 값이 없을 경우
     nosearch() {
@@ -140,9 +144,9 @@ export default {
       this.showModal = false;
     },
     //input에 값이 있는지 체크
-    searchCheck() {
-      return this.searchbook.length <= 0 ? this.nosearch() : this.booksearch();
-    }
+    // searchCheck() {
+    //   return this.searchbook.length <= 0 ? this.nosearch() : this.booksearch();
+    // }
   }
 }
 </script>

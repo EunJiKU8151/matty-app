@@ -2,11 +2,10 @@
   <div>
     <ul class="book-list">
       <li class="book-item" v-for="bookList in bookLists" :key="bookList.idx" @click="catashow(bookList.TREEID, bookList.TITLE)">
-        <p class="book-cata-title" ref="getTitle">{{ bookList.TITLE }}</p>
+        <p class="book-cata-title">{{ bookList.TITLE }}</p>
       </li>
     </ul>
     <ModalBox v-if="showModal" @close="[showModal = false, closeModal()]">
-      <!-- <h3 slot="header">{{ bookList.BOOK_GB_TITLE }}</h3> -->
       <h3 slot="header">{{ bookTitle }}</h3>
       <div slot="body">
         <ul class="book-modal-list">
@@ -26,7 +25,9 @@
             </div>
           </li>
         </ul>
-        <button type="button" @click="morebook(id)">더보기</button>
+        <div class="btn-wrap">
+          <button type="button" class="btn-more" @click="morebook(id)">더보기</button>
+        </div>
       </div>
     </ModalBox>
   </div>
@@ -73,12 +74,21 @@ export default {
       })
     },
     closeModal() {
+      //모달 닫을 경우 빈값 만들기
       this.modalBooks = "";
       this.bookTitle = "";
     },
-    // morebook(id) {
-    //   // console.log(id);
-    // }
+    morebook(id) {
+      BookListGet(id)
+      .then(({ data }) => {
+        console.log(data);
+        // this.modalBooks = data;
+        console.log(id);
+      })
+      .catch(error => {
+        console.log(error);
+      })
+    }
   }
 }
 </script>

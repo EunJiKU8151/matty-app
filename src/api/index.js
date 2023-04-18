@@ -46,7 +46,7 @@ function BookListGet(id) {
     params: {
       c: id,
       // size: "10" * id
-      // p: id
+      p: id
     }
   });
 }
