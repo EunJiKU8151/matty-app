@@ -26,7 +26,7 @@
           </li>
         </ul>
         <div class="btn-wrap">
-          <button type="button" class="btn-more" @click="morebook(id)">더보기</button>
+          <button type="button" class="btn-more" @click="[clickbtn()]" v-if="btnShow">더보기</button>
         </div>
       </div>
     </ModalBox>
@@ -34,7 +34,7 @@
 </template>
 
 <script>
-import { bookItemGet, BookListGet } from '@/api/index';
+import { bookItemGet, BookListGet, BookListMore } from '@/api/index';
 import ModalBox from '@/components/common/ModalBox.vue';
 
 export default {
@@ -43,8 +43,11 @@ export default {
       bookLists: [],
       showModal: false,
       booktitle: '',
+      titlenum: '',
       modalBooks: [],
       bookTitle: [],
+      clickdata: 1,
+      btnShow: true
     }
   },
   components: {
@@ -61,7 +64,9 @@ export default {
     })
   },
   methods: {
+    //카테고리 버튼 클릭시 모달 열기
     catashow(id, name) {
+      this.titlenum = id;
       BookListGet(id)
       .then(({ data }) => {
         console.log(data);
@@ -73,17 +78,35 @@ export default {
         console.log(error);
       })
     },
+    //모달 닫을 경우 빈값 만들기
     closeModal() {
-      //모달 닫을 경우 빈값 만들기
       this.modalBooks = "";
       this.bookTitle = "";
+      this.clickdata = 1 ;
+      this.btnShow = true;
     },
-    morebook(id) {
-      BookListGet(id)
+    //더보기 버튼 클릭
+    clickbtn() {
+      this.clickdata++;
+      this.morebook();
+    },
+    // 더보기 버튼 클릭시 해당 값 추가로 불러오기
+    morebook() {
+      var titledata = this.titlenum;
+      var clicknum = this.clickdata;
+      BookListMore(titledata, clicknum)
       .then(({ data }) => {
-        console.log(data);
-        // this.modalBooks = data;
-        console.log(id);
+        console.log(data.length);
+        console.log(this.modalBooks.length);
+        if (data.length > this.modalBooks.length) {
+          if (data.length == this.modalBooks.length) {
+            this.btnShow = false; 
+          } else {
+            this.modalBooks = data;
+          }
+        } else {
+          this.btnShow = false;
+        }
       })
       .catch(error => {
         console.log(error);
