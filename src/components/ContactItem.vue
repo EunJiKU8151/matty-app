@@ -29,20 +29,19 @@ export default {
   },
   async created() {
     let userId = 618;
-    
-    // 
     /* 
       tip 
       async await 쓰는 이유가 then과 catch를 안쓰려고 하는거죠?
+      ✔✔✔ 230419 수정완료 ✔✔✔
     */
-    await ThisUserApi(userId)
-      .then(({ data }) => {
-        this.myDept = data.DEPT_CODE
-      })
-      .catch(error => {
-        console.log("내 정보 에러 : " + error);
-        console.log(error);
-      })
+    try {
+      const { data } = await ThisUserApi(userId);
+      this.myDept = data.DEPT_CODE;
+    }
+    catch(error) {
+      console.log("내 정보 에러 : " + error);
+      console.log(error);
+    }
 
     // 부서 Api Get
     await contantApi(this.myDept)

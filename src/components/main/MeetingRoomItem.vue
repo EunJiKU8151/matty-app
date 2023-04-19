@@ -74,6 +74,9 @@ export default {
       return `${hours}:${minutes}`;
     }
   },
+  // ❗❗❗
+  // 230419 구은지 수정중
+  // ❗❗❗
   async created() {
     await meetingRoomApi()
       .then(({ data }) => {
@@ -88,6 +91,20 @@ export default {
     this.intervalId = setInterval(this.nowTimeBarWidth, 1000);
     // setInterval(this.nowTimeBarWidth, 1000);
   },
+  // async created() {
+  //   try {
+  //     const { data } = await meetingRoomApi()
+  //     this.meetingRoom = data;
+  //     this.roomInfo.total = this.meetingRoom.length;
+  //     this.roomTotalCalcu();
+  //   }
+  //   catch(error) {
+  //     console.log("미팅룸 에러 : " + error);
+  //     console.log(error);
+  //   }
+  //   this.intervalId = setInterval(this.nowTimeBarWidth, 1000);
+  //   // setInterval(this.nowTimeBarWidth, 1000);
+  // },
   destroyed() {
     clearInterval(this.intervalId)
   },
