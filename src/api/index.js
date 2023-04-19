@@ -7,6 +7,7 @@ let date = dateCalculation();
 let allFirstDay = date[0];
 let firstDay = date[1];
 let lastDay = date[2];
+let nowDay = date[3];
 
 const instance = axios.create({
   baseURL: "https://mattyapi.easymedia.co.kr/",
@@ -145,7 +146,7 @@ function meetingRoomApi() {
 function meetingSchApi() {
   return instance.get('api/Meeting', {
     params: {
-      date: '2023-04-11'
+      date: nowDay
     }
   })
 }
