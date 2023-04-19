@@ -1,30 +1,30 @@
 <template>
   <div class="main-page page">
-    <EzDay></EzDay>
-    <EzStory></EzStory>
-    <NewUser></NewUser>
-    <CommunityBoard></CommunityBoard>
-    <MeetingRoom></MeetingRoom>
-    <MeetingSchedule></MeetingSchedule>
+    <EzDayItem></EzDayItem>
+    <EzStoryItem></EzStoryItem>
+    <NewUserItem></NewUserItem>
+    <CommunityBoardItem></CommunityBoardItem>
+    <MeetingRoomItem></MeetingRoomItem>
+    <MeetingScheduleItem></MeetingScheduleItem>
   </div>
 </template>
 
 <script>
-import EzDay from '@/components/EzDay.vue';
-import EzStory from '@/components/EzStory.vue';
-import NewUser from '@/components/NewUser.vue';
-import CommunityBoard from '@/components/CommunityBoard.vue';
-import MeetingRoom from '@/components/MeetingRoom.vue';
-import MeetingSchedule from '@/components/MeetingSchedule.vue';
+import EzDayItem from '@/components/main/EzDayItem.vue';
+import EzStoryItem from '@/components/main/EzStoryItem.vue';
+import NewUserItem from '@/components/main/NewUserItem.vue';
+import CommunityBoardItem from '@/components/main/CommunityBoardItem.vue';
+import MeetingRoomItem from '@/components/main/MeetingRoomItem.vue';
+import MeetingScheduleItem from '@/components/main/MeetingScheduleItem.vue';
 
 export default {
   components: {
-    EzDay,
-    EzStory,
-    NewUser,
-    CommunityBoard,
-    MeetingRoom,
-    MeetingSchedule
+    EzDayItem,
+    EzStoryItem,
+    NewUserItem,
+    CommunityBoardItem,
+    MeetingRoomItem,
+    MeetingScheduleItem
   }
 }
 </script>

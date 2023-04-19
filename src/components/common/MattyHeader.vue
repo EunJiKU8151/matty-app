@@ -1,6 +1,6 @@
 <template>
   <header class="header">
-    <h1 class="logo"><img src="../assets/images/matty-logo.png" alt="matty"></h1>
+    <h1 class="logo"><img src="../../assets/images/matty-logo.png" alt="matty"></h1>
   </header>
 </template>
 

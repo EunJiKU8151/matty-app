@@ -7,8 +7,8 @@
 </template>
 
 <script>
-import MattyHeader from '@/components/MattyHeader.vue';
-import MattyMenubar from '@/components/MattyMenubar.vue';
+import MattyHeader from '@/components/common/MattyHeader.vue';
+import MattyMenubar from '@/components/common/MattyMenubar.vue';
 
 export default {
   computed: {
