@@ -1,7 +1,7 @@
 <template>
   <div class="meetingsch-sec sec">
     <h2 class="sec-tit">미팅일정</h2>
-    <ul class="sch-list">
+    <ul class="sch-list" v-if="!(meetingSch == '')">
       <li v-for="item in meetingSch" :key="item.Task.T_IDX">
         <p class="tit">
           <i class="fa-solid fa-location-dot"></i>
@@ -17,7 +17,7 @@
             -->
             <li class="user" v-for="user in item.Workers" :key="user.TW_IDX">
               <div class="img-box">
-                <img :src="`https://easymedia.matty.works:8443/File/Page1/Profile/${user.TW_ID}`" alt="">
+                <img :src="`${$store.state.userImgUrl}${user.TW_ID}`" alt="">
               </div>
               <p class="name">
                 {{user.TW_NAME}}
@@ -28,6 +28,7 @@
         </div>
       </li>
     </ul>
+    <p class="no-meeting" v-else>미팅일정이 없습니다.</p>
   </div>
 </template>
 
