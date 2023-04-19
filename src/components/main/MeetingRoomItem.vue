@@ -78,35 +78,20 @@ export default {
   // 230419 구은지 수정중
   // ❗❗❗
   async created() {
-    await meetingRoomApi()
-      .then(({ data }) => {
-        this.meetingRoom = data;
-        this.roomInfo.total = this.meetingRoom.length;
-        this.roomTotalCalcu();
-      })
-      .catch(error => {
-        console.log("미팅룸 에러 : " + error);
-        console.log(error);
-      })
-    this.intervalId = setInterval(this.nowTimeBarWidth, 1000);
-    // setInterval(this.nowTimeBarWidth, 1000);
+    try {
+      const { data } = await meetingRoomApi()
+      this.meetingRoom = data;
+      this.roomInfo.total = this.meetingRoom.length;
+      this.roomTotalCalcu();
+      this.intervalId = setInterval(this.nowTimeBarWidth, 1000);
+    }
+    catch(error) {
+      console.log("미팅룸 에러 : " + error);
+      console.log(error);
+    }
   },
-  // async created() {
-  //   try {
-  //     const { data } = await meetingRoomApi()
-  //     this.meetingRoom = data;
-  //     this.roomInfo.total = this.meetingRoom.length;
-  //     this.roomTotalCalcu();
-  //   }
-  //   catch(error) {
-  //     console.log("미팅룸 에러 : " + error);
-  //     console.log(error);
-  //   }
-  //   this.intervalId = setInterval(this.nowTimeBarWidth, 1000);
-  //   // setInterval(this.nowTimeBarWidth, 1000);
-  // },
   destroyed() {
-    clearInterval(this.intervalId)
+    clearInterval(this.intervalId);
   },
   methods: {
     // 회의실 토탈 계산 (종료 -1, 진행중 0, 예정 1,2)

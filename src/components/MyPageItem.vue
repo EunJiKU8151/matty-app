@@ -54,17 +54,17 @@ export default {
       return `${month}월 ${day}일`;
     }
   },
+  async created() {
+    try {
+      // 해당 로그인 유저 정보 API Get
+      const { data } = await thisUserInfoApi();
+      this.thisUserInfos = data;
+    } catch(error) {
+      console.log("마이페이지 에러 : " + error);
+      console.log(error);
+    }
+  },
   methods: {
-    async fetchData() {
-      try {
-        // 해당 로그인 유저 정보 API Get
-        const { data } = await thisUserInfoApi();
-        this.thisUserInfos = data;
-      } catch(error) {
-        console.log("마이페이지 에러 : " + error);
-        console.log(error);
-      }
-    },
     // 로그아웃 버튼 클릭
     logOutUser() {
       if(window.confirm('로그아웃 하시겠습니까?')) {
@@ -78,9 +78,6 @@ export default {
         this.$router.push('/login');
       }
     }
-  },
-  created() {
-    this.fetchData();
   }
 }
 </script>

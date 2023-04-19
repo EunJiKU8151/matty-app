@@ -42,11 +42,21 @@ export default {
       console.log("내 정보 에러 : " + error);
       console.log(error);
     }
+    // ThisUserApi(userId)
+    //   .then(({ data }) => {
+    //     this.myDept = data.DEPT_CODE;
+    //     console.log("1");
+    //   })
+    //   .catch(error => {
+    //     console.log("내 정보 에러 : " + error);
+    //     console.log(error);
+    //   })
 
     // 부서 Api Get
-    await contantApi(this.myDept)
+    contantApi(this.myDept)
       .then(({ data }) => {
         this.myTeamUsers = data;
+        console.log("2");
       })
       .catch(error => {
         console.log("연락처 에러 : " + error);

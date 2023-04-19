@@ -38,21 +38,16 @@ export default {
     swiper,
     swiperSlide
   },
-  methods: {
-    async fetchData() {
-      try {
-        // 이지스토리 Api Get
-        const { data } = await ezStoryApi();
-        this.ezStoryItems = data;
-      }
-      catch(error) {
-        console.log("이지스토리 에러 : " + error);
-        console.log(error);
-      }
+  async created () {
+    try {
+      // 이지스토리 Api Get
+      const { data } = await ezStoryApi();
+      this.ezStoryItems = data;
     }
-  },
-  created () {
-    this.fetchData();
+    catch(error) {
+      console.log("이지스토리 에러 : " + error);
+      console.log(error);
+    }
   }
 }
 </script>
