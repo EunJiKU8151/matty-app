@@ -4,7 +4,7 @@
       <div class="contact-list">
         <router-link :to="`/user/${item.E_IDX}`" v-for="item in myTeamUsers" :key="item.E_IDX" class="item">
           <div class="img-box">
-            <img :src="`https://easymedia.matty.works:8443/File/Page1/Profile/${item.EMAIL}`" alt="">
+            <img :src="`${$store.state.userImgUrl}${item.EMAIL}`" alt="">
           </div>
           <div class="txt-box">
             <p class="name">{{ item.NAME }}</p>

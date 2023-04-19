@@ -33,7 +33,7 @@
         </div>
         <div class="profile">
           <div class="img-box">
-            <img :src="`https://easymedia.matty.works:8443/File/Page1/Profile/${item.UserId}`" alt="">
+            <img :src="`${$store.state.userImgUrl}${item.UserId}`" alt="">
           </div>
           <p class="name">{{ item.UserName }}</p>
         </div>

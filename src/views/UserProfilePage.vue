@@ -4,7 +4,7 @@
       <button class="prev-btn" @click="prevPage"><i class="fa-solid fa-arrow-left"></i></button>
       <div class="profile-area">
         <div class="img-box">
-          <img :src="`https://easymedia.matty.works:8443/File/Page1/Profile/${userProfile.EMAIL}`" alt="">
+          <img :src="`${$store.state.userImgUrl}${userProfile.EMAIL}`" alt="">
         </div>
         <div class="txt-box">
           <p class="names">

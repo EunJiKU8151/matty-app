@@ -12,7 +12,7 @@
       <swiper-slide v-for="item in onContent" v-bind:key="item.TREEID" ref="item">
         <router-link :to="`/user/${item.E_IDX}`">
           <div class="img-box">
-            <img :src="`https://easymedia.matty.works:8443/File/Page1/Profile/${item.EMAIL}`" alt="">
+            <img :src="`${$store.state.userImgUrl}${item.EMAIL}`" alt="">
           </div>
           <div class="txt-box">
             <p class="name">{{ item.NAME }}</p>
@@ -36,7 +36,7 @@
               <ul class="users-list">
                 <li class="users-item" v-for="user in item" :key="user">
                   <div class="img-box">
-                    <img :src="`https://easymedia.matty.works:8443/File/Page1/Profile/${user.EMAIL}`" alt="">
+                    <img :src="`${$store.state.userImgUrl}${user.EMAIL}`" alt="">
                   </div>
                   <div class="txt-box">
                     <p class="name">{{ user.NAME }}</p>
@@ -55,7 +55,7 @@
               <ul class="users-list">
                 <li class="users-item" v-for="user in item" :key="user">
                   <div class="img-box">
-                    <img :src="`https://easymedia.matty.works:8443/File/Page1/Profile/${user.EMAIL}`" alt="">
+                    <img :src="`${$store.state.userImgUrl}${user.EMAIL}`" alt="">
                   </div>
                   <div class="txt-box">
                     <p class="name">{{ user.NAME }}</p>

@@ -4,7 +4,7 @@
       <div class="secTit-box">
         <h2 class="sec-tit">마이페이지</h2>
         <div class="img-box">
-          <img :src="`https://easymedia.matty.works:8443/File/Page1/Profile/${thisUserInfos.AV_EMP_NO}`" alt="">
+          <img :src="`${$store.state.userImgUrl}${thisUserInfos.AV_EMP_NO}`" alt="">
         </div>
       </div>
       <div class="info-wrap">

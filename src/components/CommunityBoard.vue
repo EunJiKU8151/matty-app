@@ -11,7 +11,7 @@
     <div v-if="!(boardItems == '')" class="board-area">
       <a v-for="item in boardItems" :key="item.BBSDATAID" href="javascript:" class="board">
         <div class="img-box">
-          <figure class="img"><img :src="`https://easymedia.matty.works:8443/File/Page1/Profile/${item.USERID}`" alt=""></figure>
+          <figure class="img"><img :src="`${$store.state.userImgUrl}${item.USERID}`" alt=""></figure>
           <p class="name">{{ item.USERNAME }}</p>
         </div>
         <div class="txt-box">
