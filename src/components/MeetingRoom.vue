@@ -1,6 +1,6 @@
 <template>
   <div class="meeting-sec sec">
-    <h2 class="sec-tit" @click="click">회의실</h2>
+    <h2 class="sec-tit">회의실</h2>
     <ul class="meeting-total">
       <li>
         <p class="tit">총 예약</p>
@@ -28,7 +28,7 @@
             <span>{{ item.Enddate | HM }}</span>
           </p>
           <div class="bar-wrap">
-            <span class="bar" refs="bar"></span>
+            <span class="bar"></span>
           </div>
         </div>
         <div class="profile">
@@ -55,170 +55,89 @@ export default {
         schedule: 0,
         end: 0,
       },
-      testtest: []
+      intervalId: null,
     }
   },
   filters: {
-      HM: function(value) {
-        let itemDate = new Date(value);
-        let hours = itemDate.getHours();
-        let minutes  = itemDate.getMinutes();
-        
-        if(hours < 10) {
-          hours = `0${hours}`;
-        }
-        if(minutes < 10) {
-          minutes = `0${minutes}`;
-        }
-        
-        return `${hours}:${minutes}`;
+    HM: function(value) {
+      let itemDate = new Date(value);
+      let hours = itemDate.getHours();
+      let minutes  = itemDate.getMinutes();
+      
+      if(minutes < 10) {
+        minutes = `0${minutes}`;
+      }
+      if(hours < 10) {
+        hours = `0${hours}`;
+      }
+      
+      return `${hours}:${minutes}`;
     }
   },
-  created() {
-    },
-  mounted() {
-    meetingRoomApi()
+  async created() {
+    await meetingRoomApi()
       .then(({ data }) => {
         this.meetingRoom = data;
-        // ❗
-        this.getMeetingEachClock();
-
-        // ❗
         this.roomInfo.total = this.meetingRoom.length;
-
-        // 종료 -1, 진행중 0, 예정 1,2
-        this.meetingRoom.forEach((item) => {
-          if(item.Status == -1) {
-            this.roomInfo.end += 1;
-            } else if(item.Status == 0) {
-              this.roomInfo.ongoing += 1;
-            } else {
-              this.roomInfo.schedule += 1
-            }
-        });
-              this.aaaaaaaaaaaaa();
-
+        this.roomTotalCalcu();
       })
       .catch(error => {
         console.log("미팅룸 에러 : " + error);
         console.log(error);
       })
-    // 60초(10분)에 한번 실행,
-    // setInterval(this.getClock, 100000);
-    setTimeout(this.getClock, 1000);
+    this.intervalId = setInterval(this.nowTimeBarWidth, 1000);
+    // setInterval(this.nowTimeBarWidth, 1000);
+  },
+  destroyed() {
+    clearInterval(this.intervalId)
   },
   methods: {
-    click() {
-      this.$refs.meetingList.style.background = "red";
-    },
-    getClock() {
-      const date = new Date();
-      let nowH = date.getHours();
-      let nowM = date.getMinutes();
-      if(nowM < 10) {
-        nowM = `0${nowM}`;
-      }
-      if(nowH < 10) {
-        nowH = `0${nowH}`;
-      }
-
-
-
-      // var aaaa = `${nowH}:${nowM}`;
-
-      // 🔹🔹🔹
-        
-
-      // 🔹🔹🔹
-
-      // this.testtest.forEach((item, idx) => {
-      //   var 냠 = item.split("~");
-      //   if(냠[0] < aaaa) {
-      //   // ❗
-      //     this.$refs.meetingList.children[idx].querySelector(".bar").style.width = "100%";
-      //   // ❗
-      //   }
-      // });
-      
-    },
-    aaaaaaaaaaaaa() {
-      // const dateA = new Date('2022/06/01 01:10:00');
-      // const dateB = new Date('2022/06/01 00:50:00');
-      // const diffMSec = dateA.getTime() - dateB.getTime();
-      // const diffMin = diffMSec / (60 * 1000);
-      // console.log(`시간의 차이는 ${diffMin}분 입니다.`);
-
+    // 회의실 토탈 계산 (종료 -1, 진행중 0, 예정 1,2)
+    roomTotalCalcu() {
       this.meetingRoom.forEach((item) => {
-        console.log(item);
-        var dateA = new Date(item.Startdate);
-        var dateB = new Date(item.Enddate);
-        // console.log(dateA.getTime());
-        const diffMSec =  dateB.getTime() - dateA.getTime();
-        const diffMin = diffMSec / (60 * 1000);
-        console.log(`시간의 차이는 ${diffMin}분 입니다.`);
-        // 현재시간 * 100 / 총시간
-        // 60 X 100 / 120 = 결과값
-
-        var dateA1 = new Date(item.Startdate);
-        var dateB2 = new Date();
-        // console.log(dateA.getTime());
-        const diffMSec2 =  dateB2.getTime() - dateA1.getTime();
-        const diffMin2 = diffMSec2 / (60 * 1000);
-        const testrtttt = Math.floor(diffMin2);
-        console.log(`시간의 차이는 ${testrtttt}분 입니다.`);
-
-        var total = testrtttt * 100 / diffMin;
-        var dddddddddd = total.toFixed(3);
-        console.log(`${dddddddddd}%`);
-
-        // this.$refs.meetingList.children[idx].querySelector(".bar").style.width = `${dddddddddd}%`;
-        // this.$refs.meetingList.querySelectorAll(".bar").style.width = "100%";
-        console.log(this.$refs.meetingList.children);
-        // this.$refs.meetingList.children[idx].style.background = "red";
-        console.log(this.$refs.bar);
-        console.log("-----");
-      })
+        if(item.Status == -1) {
+          this.roomInfo.end += 1;
+        } else if(item.Status == 0) {
+          this.roomInfo.ongoing += 1;
+        } else {
+          this.roomInfo.schedule += 1
+        }
+      });
     },
-    getMeetingEachClock() {
-      // this.meetingRoom.forEach((item) => {
-      //   var a = this.filterClock(item.Startdate);
-      //   var b = this.filterClock(item.Enddate);
-      //   console.log(a);
-      //   console.log(b);
-      //   console.log("----");
-      // })
-      // ❗ 배열에 각 회의실 start~end를 배열로 담았다.
-      this.testtest = this.meetingRoom.map((item) => {
-        var a = this.filterClock(item.Startdate);
-        var b = this.filterClock(item.Enddate);
-        let ab = `${a}~${b}`
-        return ab
-      })
-      // console.log(this.testtest);
+    // bar width % 변경
+    nowTimeBarWidth() {
+      let status = 0;
+      this.meetingRoom.forEach((item, idx) => {
+        status = item.Status
+        if(status == 0) {
+          var barWidth = this.roomBarTimeCaluc(item);
+          // console.log(barWidth);
+          // console.log(this.$el.querySelectorAll('.bar'));
+          this.$refs.meetingList.querySelectorAll('.bar')[idx].style.width = `${barWidth}%`;
+        } else if (status == -1) {
+          this.$refs.meetingList.querySelectorAll('.bar')[idx].style.width = "100%";
+        }
+      }) 
     },
-    filterClock(value) {
-      let itemDate = new Date(value);
-      let hours = itemDate.getHours();
-      let minutes  = itemDate.getMinutes();
-      
-      if(hours < 10) {
-        hours = `0${hours}`;
-      }
-      if(minutes < 10) {
-        minutes = `0${minutes}`;
-      }
-      
-      return `${hours}:${minutes}`;
-    }
-    // bar
-    // barMotion() {
+    // 회의 진행률 구하기
+    roomBarTimeCaluc(item) {
+      let startDate = new Date(item.Startdate);
+      let endDate = new Date(item.Enddate);
+      let totalMSec =  endDate.getTime() - startDate.getTime();
+      let totalMin = totalMSec / (60 * 1000);
+      // console.log(`회의실 총 예약시간은 ${totalMin}분 입니다.`);
 
-    // }
-    // startTimer: function() {
-		// 	// this.timer = setInterval(() => this.countdown(), 1000);
-		// 	setTimeout(() => console.log("셋타이머"), 1000);
-		// 	// this.resetButton = true;
-		// },
+      let nowDate = new Date();
+      let ingSec =  nowDate.getTime() - startDate.getTime();
+      let ingMin = ingSec / (60 * 1000);
+      let ingMinFloor = Math.floor(ingMin);
+      // console.log(`현재 ${ingMinFloor}분 회의를 진행했습니다.`);
+
+      let percent = ingMinFloor * 100 / totalMin;
+      let percentFllor = percent.toFixed(3);
+      // console.log(`${percentFllor}%를 bar 채우겠습니다.`);
+      return percentFllor;
+    },
   },
 }
 </script>

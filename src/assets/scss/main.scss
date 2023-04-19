@@ -86,7 +86,7 @@
 .meeting-sec .meeting-list li .bar-box .roomtime {text-align: center;}
 .meeting-sec .meeting-list li .bar-box .roomtime span {font-size: 13px; font-weight: 500; color: $black_color;}
 .meeting-sec .meeting-list li .bar-box .bar-wrap {position: relative; width: 100%; height: 5px; margin: 5px 0; border: 1px solid $point_color; border-radius: 5px; overflow: hidden;}
-.meeting-sec .meeting-list li .bar-box .bar-wrap .bar {position: absolute; top: 0; left: 0; bottom: 0; width: 100%; height: 100%; background: $point_color;}
+.meeting-sec .meeting-list li .bar-box .bar-wrap .bar {position: absolute; top: 0; left: 0; bottom: 0; width: 0; height: 100%; background: $point_color;}
 .meeting-sec .meeting-list li .profile {width: 25%; text-align: center;}
 .meeting-sec .meeting-list li .profile .img-box {width: 30px; height: 30px; margin: 0 auto; border-radius: 50%; overflow: hidden;}
 .meeting-sec .meeting-list li .profile .img-box img {width: 100%; height: 100%; object-fit: cover;}
