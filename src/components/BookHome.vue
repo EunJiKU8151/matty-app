@@ -98,7 +98,7 @@ export default {
   created() {
     newBookGet()
       .then(({ data }) => {
-        console.log(data.field);
+        // console.log(data);
         this.newbookItem = data;
       })
       .catch(error => {
