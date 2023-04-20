@@ -8,7 +8,8 @@ const store = new Vuex.Store({
     UserId: localStorage.getItem("UserID") || '',
     AccessToken: localStorage.getItem("AccessToken") || '',
     RefreshToken: localStorage.getItem("AccessToken") || '',
-    userImgUrl: process.env.VUE_APP_USER_IMG_URL
+    userImgUrl: process.env.VUE_APP_USER_IMG_URL,
+    bookImgUrl: process.env.VUE_APP_BOOK_IMG_URL,
   },
   getters: {
     // UserId값이 있으면, header&nav 보임

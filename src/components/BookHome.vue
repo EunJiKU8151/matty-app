@@ -14,7 +14,7 @@
       <swiper class="newbookSlide" :options="swiperOption">
         <swiper-slide v-for="item in newbookItem" :key="item.num">
           <div class="ig-box">
-            <img :src="`https://www.ezcampus.kr:444/File/Details/${item.BOOK_UKEY}`" alt="">
+            <img :src="`${$store.state.bookImgUrl}${item.BOOK_UKEY}`" alt="">
           </div>
           <div class="txt-box">
             <p class="book-title">{{ item.BOOK_TITLE }}</p>
@@ -60,7 +60,7 @@
         <ul class="book-modal-list">
           <li v-for="book in searchList" :key="book.idx">
             <div class="ig-book">
-              <img :src="`https://www.ezcampus.kr:444/File/Details/${book.BOOK_UKEY}`" alt="">
+              <img :src="`${$store.state.bookImgUrl}${book.BOOK_UKEY}`" alt="">
             </div>
             <div class="book-text">
               <p class="tit">{{ book.BOOK_TITLE }}</p>
