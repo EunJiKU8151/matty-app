@@ -151,9 +151,9 @@ function meetingSchApi() {
   })
 }
 
-// 특정 유저 정보 API
-function ThisUserApi(userId) {
-  return instance.get(`api/User/${userId}`)
+// 전체 유저 정보 API
+function allUserApi() {
+  return instance.get(`api/User`)
 }
 
 // 부서 Api
@@ -176,7 +176,7 @@ export {
   BoardApi,
   meetingRoomApi,
   meetingSchApi,
-  ThisUserApi,
+  allUserApi,
   contantApi,
   bookItemGet,
   newBookGet,

@@ -18,7 +18,7 @@
 </template>
 
 <script>
-import { ThisUserApi, contantApi } from '@/api/index';
+import { allUserApi, contantApi } from '@/api/index';
 
 export default {
   data: function() {
@@ -28,29 +28,24 @@ export default {
       };
   },
   async created() {
-    let userId = 618;
     /* 
       tip 
       async await 쓰는 이유가 then과 catch를 안쓰려고 하는거죠?
       ✔✔✔ 230419 수정완료 ✔✔✔
     */
     try {
-      const { data } = await ThisUserApi(userId);
-      this.myDept = data.DEPT_CODE;
+      const myId = this.$store.state.UserId;
+      const { data } = await allUserApi();
+      data.forEach(item => {
+        if(item.EMAIL == myId) {
+          this.myDept = item.DEPT_CODE
+        }
+      });
     }
     catch(error) {
       console.log("내 정보 에러 : " + error);
       console.log(error);
     }
-    // ThisUserApi(userId)
-    //   .then(({ data }) => {
-    //     this.myDept = data.DEPT_CODE;
-    //     console.log("1");
-    //   })
-    //   .catch(error => {
-    //     console.log("내 정보 에러 : " + error);
-    //     console.log(error);
-    //   })
 
     // 부서 Api Get
     contantApi(this.myDept)
