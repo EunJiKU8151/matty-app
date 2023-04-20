@@ -35,7 +35,7 @@
 </template>
 
 <script>
-import { ThisUserApi } from '@/api/index';
+import { thisUserApi } from '@/api/index';
 
 export default {
   data() {
@@ -64,12 +64,12 @@ export default {
     let userId = this.$route.params.id;
 
     // 특정 유저 정보 API Get
-    ThisUserApi(userId)
+    thisUserApi(userId)
       .then(({ data }) => {
         this.userProfile = data;
       })
       .catch(error => {
-        console.log("특정 유저 정보 에러 : " + ThisUserApi);
+        console.log("특정 유저 정보 에러 : " + error);
         console.log(error);
       })
   },

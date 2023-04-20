@@ -122,12 +122,12 @@ function newUserApi() {
 }
 
 // 게시판 메뉴 API
-function BoardMenuApi() {
+function boardMenuApi() {
   return instance.get('api/CommunityCategory');
 }
 
 // 게시판 API
-function BoardApi(menu) {
+function boardApi(menu) {
   return instance.get('api/Community', {
     params: {
       c: menu,
@@ -156,6 +156,11 @@ function allUserApi() {
   return instance.get(`api/User`)
 }
 
+// 특정 유저 정보 API
+function thisUserApi(userId) {
+  return instance.get(`api/User/${userId}`)
+}
+
 // 부서 Api
 function contantApi(dept) {
   return instance.get('api/User', {
@@ -172,11 +177,12 @@ export {
   birthDayApi,
   ezStoryApi,
   newUserApi,
-  BoardMenuApi,
-  BoardApi,
+  boardMenuApi,
+  boardApi,
   meetingRoomApi,
   meetingSchApi,
   allUserApi,
+  thisUserApi,
   contantApi,
   bookItemGet,
   newBookGet,

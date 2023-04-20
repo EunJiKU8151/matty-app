@@ -41,7 +41,7 @@
 <script>
 import { swiper, swiperSlide } from 'vue-awesome-swiper';
 import 'swiper/dist/css/swiper.min.css';
-import { BoardMenuApi, BoardApi } from '@/api/index';
+import { boardMenuApi, boardApi } from '@/api/index';
 
 export default {
   name: 'boardTabSwiper',
@@ -88,7 +88,7 @@ export default {
     },
     // 게시판 API Get
     BoardGet(menu) {
-      BoardApi(menu)
+      boardApi(menu)
         .then(({ data }) => {
           this.boardItems = data;
         })
@@ -100,7 +100,7 @@ export default {
   },
   created() {
     // 게시판 메뉴 API Get
-    BoardMenuApi()
+    boardMenuApi()
       .then(({ data }) => {
         this.boardMenu = data;
       })

@@ -51,7 +51,6 @@ export default {
     contantApi(this.myDept)
       .then(({ data }) => {
         this.myTeamUsers = data;
-        console.log("2");
       })
       .catch(error => {
         console.log("연락처 에러 : " + error);
