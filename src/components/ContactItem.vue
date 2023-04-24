@@ -33,6 +33,38 @@ export default {
       async await 쓰는 이유가 then과 catch를 안쓰려고 하는거죠?
       ✔✔✔ 230419 수정완료 ✔✔✔
     */
+    // try {
+    //   const myId = this.$store.state.UserId;
+    //   const { data } = await allUserApi();
+    //   data.forEach(item => {
+    //     if(item.EMAIL == myId) {
+    //       this.myDept = item.DEPT_CODE
+    //     }
+    //   });
+    // }
+    // catch(error) {
+    //   console.log("내 정보 에러 : " + error);
+    //   console.log(error);
+    // }
+
+    // // 부서 Api Get
+    // contantApi(this.myDept)
+    //   .then(({ data }) => {
+    //     this.myTeamUsers = data;
+    //   })
+    //   .catch(error => {
+    //     console.log("연락처 에러 : " + error);
+    //     console.log(error);
+    //   })
+
+    allUserApi()
+      .then(({ data }) => {
+        data.forEach(item => {
+        if(item.EMAIL == myId) {
+          this.myDept = item.DEPT_CODE
+        }
+      }))
+
     try {
       const myId = this.$store.state.UserId;
       const { data } = await allUserApi();
