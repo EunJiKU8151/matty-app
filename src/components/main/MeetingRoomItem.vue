@@ -74,9 +74,6 @@ export default {
       return `${hours}:${minutes}`;
     }
   },
-  // ❗❗❗
-  // 230419 구은지 수정중
-  // ❗❗❗
   async created() {
     try {
       const { data } = await meetingRoomApi()
